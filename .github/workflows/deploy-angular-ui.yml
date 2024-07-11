@@ -28,31 +28,31 @@ jobs:
         npm install --force
         npm run build --prod
       working-directory: EAD-Angular
-    - name: Archive build
-      uses: actions/upload-artifact@v2
+      
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v3
       with:
-        name: drop
+        name: Build
         path: dist
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Download build
-      uses: actions/download-artifact@v2
-      with:
-        name: drop
+  #   steps:
+  #   - name: Download build
+  #     uses: actions/download-artifact@v2
+  #     with:
+  #       name: dist
         
-    - name: Azure Login
-      uses: Azure/login@v2.1.0
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+  #   - name: Azure Login
+  #     uses: Azure/login@v2.1.0
+    #   with:
+    #     creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    - name: Azure App Service Deploy
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: ${{ env.webappname }}
-        package: ./drop
-        startup-command: pm2 serve /home/site/wwwroot/ead/browser --no-daemon --spa
-        restart: true        
+    # - name: Azure App Service Deploy
+    #   uses: azure/webapps-deploy@v2
+      # with:
+      #   app-name: ${{ env.webappname }}
+      #   package: ./drop
+      #   startup-command: pm2 serve /home/site/wwwroot/ead/browser --no-daemon --spa
+      #   restart: true        
