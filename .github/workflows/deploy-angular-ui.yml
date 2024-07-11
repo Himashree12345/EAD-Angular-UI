@@ -49,7 +49,7 @@ jobs:
         
     - name: 'Az CLI login'
       uses: Azure/login@v1
-        with:
+      with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
         
