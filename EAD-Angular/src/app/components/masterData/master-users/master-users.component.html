@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="menu-heading">
+        <app-breadcum [title]="title" [projectName]="projectName"></app-breadcum>
+    </div>
+    
+    <div class="title-btns">
+        <h3 class="title">Add User</h3>
+        <button class="user-project-btn" mat-button color="primary" (click)="NavigateToUserProject()">User & Project Mapping</button>
+
+        <button class="user-role-btn" mat-button color="primary" (click)="NavigateToUserRole()">User & Role Mapping</button>
+    </div>
+    <mat-card class="user-card">
+        <div class="user-details">
+            <div class="user-name">
+                <h4 class="box-heading">User Name</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter user Name">
+                </mat-form-field>
+            </div>
+            <div class="email">
+                <h4 class="box-heading">Email ID</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter Email ID">
+                </mat-form-field>
+            </div>
+            <div class="first-name">
+                <h4 class="box-heading">First Name</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter First Name">
+                </mat-form-field>
+            </div>
+            <div class="last-name">
+                <h4 class="box-heading">Last Name</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter Last Name">
+                </mat-form-field>
+            </div>
+            <div class="password">
+                <h4 class="box-heading">Password</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter Password">
+                </mat-form-field>
+            </div>
+            <div class="project-id">
+                <h4 class="box-heading">Project ID</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter Project ID">
+                </mat-form-field>
+            </div>
+            <div class="status">
+                <h4 class="box-heading">Status</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Status</mat-label>
+                    <mat-select>
+                        <mat-option value="Active">Active</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="button-row">
+            <button class="cancel-btn" mat-button color="primary" [routerLink]="['/master']">Cancel</button>
+            <button class="submit-btn" mat-button color="primary">Submit</button>
+        </div>
+    </mat-card>
+    
+</div>

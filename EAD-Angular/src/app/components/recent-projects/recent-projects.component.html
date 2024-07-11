@@ -1,0 +1,56 @@
+<div class="header-container">
+  <h3 class="title">Recent Projects</h3>
+  <div class="see-all-container">
+    <a routerLink="/projects" class="see-all-link">See All</a>
+  </div>
+</div>
+
+<div class="card-container">
+    <mat-card class="card" *ngFor="let project of projectList">
+      <mat-card-header>
+        <mat-card-title>
+          <span class="bold-text">{{ project.ProjectName }}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td colspan="2">
+              <div class="circle-container">
+                <div class="circle total-entity" style="background-color: #001F3F;">{{ project.TotalEntities }}</div>
+                <p class="circle-text">Total Entities</p>
+                <!-- // -->
+              </div>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td>
+              <div class="circle-container">
+                <div class="circle" style="background-color: green;">{{ project.CompletedEntities }}</div>
+                <p class="circle-text">Completed</p>
+              </div>
+            </td>
+            <td>
+              <div class="circle-container">
+                <div class="circle" style="background-color: skyblue;">{{ project.InProgressEntities }}</div>
+                <p class="circle-text">InProgress</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="circle-container">
+                <div class="circle" style="background-color: darkblue;">{{ project.NewEntities }}</div>
+                <p class="circle-text">New</p>
+              </div>
+
+            </td>
+
+          </tr>
+        </table>
+      </mat-card-content>
+
+    </mat-card>
+  </div>

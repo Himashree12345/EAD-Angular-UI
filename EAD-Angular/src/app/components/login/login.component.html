@@ -1,0 +1,50 @@
+<div class="outer-center-div">
+    <div class="center-login-div">
+        <div class="logo-div">
+            <img src="../../../assets/jpg/ead-logo.jpg" alt="">
+        </div>
+        <div class="section-div">
+            <!-- <div class="svg-div">
+                <img src="../../../assets/icons/login-page/tool_image.svg" alt="">
+            </div> -->
+            <div class="login-form-div">
+                <h2 class="welcome-text">Welcome Back !</h2>
+                <form action="" class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                    <div class="username form-field-login">
+                        <mat-form-field appearance="outline">
+                            <mat-label>USER NAME</mat-label>
+                            <input type="text" name="username" [(ngModel)]="user.name" matInput placeholder="Please Enter Username" required>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="password form-field-login">
+                        <mat-form-field appearance="outline">
+                            <mat-label>PASSWORD</mat-label>
+                            <input type="password" name="password" [(ngModel)]="user.password" matInput placeholder="Please Enter Password" required>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="error" *ngIf="isLoginError()?.message">{{isLoginError().message}}</div>
+                    <div class="form-field-login">
+                        <button class="login-button" type="submit" mat-raised-button [disabled]="loginForm.form.status === 'INVALID'">Login</button>
+                    </div>
+
+                    <span class="optional-label">Or Login With</span>
+
+                    <div class="form-field-login sso-div">
+                        <button class="login-with-google" mat-raised-button>
+                            <img src="../../../assets/png/login-page/google-logo.png" alt="">
+                           <span>Google</span> 
+                        </button>
+                        <button class="login-with-microsoft" mat-raised-button>
+                            <img src="../../../assets/png/login-page/microsoft-logo.png" alt="">
+                            <span>Microsoft</span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

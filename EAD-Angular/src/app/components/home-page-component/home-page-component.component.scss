@@ -1,0 +1,308 @@
+.container{
+  margin-left: 28px;
+}
+
+.Recently-Viewed-text {
+  /* Layout Properties */
+top: 108px;
+left: 112px;
+width: 189px;
+height: 33px;
+text-align: left;
+font-size: var(--component-heading-font-size);
+font-weight: bold;
+letter-spacing: 0.01px;
+color: #001F3F;
+opacity: 1;
+/* UI Properties */
+opacity: 1;
+margin-top: 20px;
+}
+
+.Recently-Viewed-card{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  gap: 24px;
+}
+
+.Recently-Viewed-card .Recently-Viewed:hover {
+  background-color: #7dc7e4;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Recently-Viewed {
+  /* Layout Properties */
+  width: 305px;
+  height: 97px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* UI Properties */
+  background: #FFFFFF;
+  box-shadow: 1px 3px 10px #E4E9EA;
+  border: 1px solid #DCDCDC;
+  border-radius: 16px;
+  opacity: 1;
+
+}
+.icon-info-container {
+  display: flex; /* Display icon and info horizontally */
+  align-items: center; /* Center vertically */
+  margin-bottom: 5px; /* Adjust the gap between icon and info */
+}
+
+.icon {
+  width: 48px; /* Adjust icon width */
+  height: 48px; /* Adjust icon height */
+  opacity: 1;
+  margin-right: 10px; /* Adjust the space between icon and text */
+}
+
+.info {
+  display: flex; /* Display info text horizontally */
+  flex-direction: column; /* Stack text vertically */
+  align-items: flex-start; /* Align text to the start */
+}
+
+p{
+  margin: 1px 0;
+}
+
+.name{
+  width: 112px;
+  height: 27px;
+  /* UI Properties */
+  text-align: left;
+  font-size: var(--card-heading-font-size);
+  font-weight: bold;
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+}
+.type{
+  width: 103px;
+  height: 22px;
+  text-align: left;
+  font-size: calc(var(--card-content-font-size) + 4px);
+  letter-spacing: 0px;
+  color: #222222;
+  opacity: 1;
+}
+
+.arrow-icon{
+  margin-left: 70px;
+}
+
+.Recent-Projects-text{
+  width: 179px;
+  height: 33px;
+  opacity: 1;
+  margin-top: 28px;
+  text-align: left;
+  font-size: var(--component-heading-font-size);
+  font-weight: bold;
+  letter-spacing: 0.01px;
+  color: #001F3F;
+  opacity: 1;
+}
+
+.Recent-Projects-card{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  overflow: hidden;
+  gap: 24px;
+}
+
+.Recent-Projects-card .Recent-Projects-info:hover {
+  background-color: #7dc7e4;
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.Recent-Projects-info{
+  width: 276px;
+  height: 255px;
+  display: flex;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 1px 2px 6px #EBEBEB;
+  border: 1px solid #DCDCDC;
+  border-radius: 16px;
+  opacity: 1;
+
+  .name-icon-container{
+    display: flex;
+    margin-top: 24px;
+    margin-left: 24px;
+  }
+
+  .name{
+    width: 112px;
+    height: 27px;
+    text-align: left;
+    font-size: var(--card-heading-font-size);
+    letter-spacing: 0px;
+    color: #222222;
+    opacity: 1;
+  }
+
+  .arrow-icon{
+    width: 17px;
+    height: 15px;
+    margin-left: 90px;
+  }
+
+  .desc{
+    width: 228px;
+    height: 108px;
+    text-align: left;
+    font-size: calc(var(--card-content-font-size) + 3px);
+    letter-spacing: 0.02px;
+    color: #3E3E3E;
+    opacity: 1;
+    margin-top: 16px;
+    margin-left: 24px;
+  }
+
+}
+
+.Open-Requests-text{
+  width: 175px;
+  height: 33px;
+  opacity: 1;
+  margin-top: 32px;
+  text-align: left;
+  font-size: var(--component-heading-font-size);
+  font-weight: bold;
+  letter-spacing: 0.01px;
+  color: #001F3F;
+  opacity: 1;
+}
+
+.Open-Requests-card .Open-Requests-info:hover {
+  background-color: #7dc7e4;
+
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.Open-Requests-info{
+  width: 1585px;
+  height: 56px;
+  margin-top: 24px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 1px 2px 6px #EBEBEB29;
+  border: 1px solid #DCDCDC;
+  border-radius: 16px;
+  opacity: 1;
+
+  .dummy-container{
+    display: flex;
+    margin-top: 15px;
+    margin-left: 24px;
+  }
+
+  .id{
+    width: 186px;
+    height: 21px;
+    text-align: left;
+    font-size: calc(var(--card-content-font-size) + 4px);
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #001F3F;
+    opacity: 1;
+  }
+
+  .name{
+    width: 186px;
+    height: 21px;
+    text-align: left;
+    font-size: calc(var(--card-content-font-size) + 4px);
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #001F3F;
+    opacity: 1;
+  }
+
+  .type{
+    width: 186px;
+    height: 21px;
+    text-align: left;
+    font-size: calc(var(--card-content-font-size) + 4px);
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #001F3F;
+    opacity: 1;
+  }
+
+  .date{
+    width: 186px;
+    height: 21px;
+    text-align: left;
+    font-size: calc(var(--card-content-font-size) + 4px);
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #001F3F;
+    opacity: 1;
+  }
+
+  .description{
+    width: 186px;
+    height: 21px;
+    text-align: left;
+    font-size: calc(var(--card-content-font-size) + 4px);
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #001F3F;
+    opacity: 1;
+  }
+
+  .detail{
+    position: absolute;
+    right: 40px;
+    justify-content: flex-end;
+    margin-top: 6.5px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    width: 154px;
+    height: 40px;
+    border: 1px solid #001F3F;
+    border-radius: 29px;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .details{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.02px;
+    opacity: 1;
+    color: #001F3F;
+  }
+
+}
+
+.circle {
+  /* Layout Properties */
+  top: 719px;
+  left: 976px;
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  margin-right: 5px;
+  /* UI Properties */
+  background: #FF6900;
+  border-radius: 50%; /* Set border-radius to 50% for a circle */
+  opacity: 1;
+}
+
+.Recently-Viewed-card .Recently-Viewed:hover,
+.Recent-Projects-card .Recent-Projects-info:hover,
+.OR-card .Open-Requests-info:hover {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}

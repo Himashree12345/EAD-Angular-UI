@@ -1,0 +1,14 @@
+.breadcum-div {
+  font-size: var(--page-heading-font-size);
+/*  font-weight: bold;*/
+  letter-spacing: 0.01px;
+  color: #001F3F;
+  opacity: 1;
+  span {
+      cursor: pointer;
+  }
+  .active-route {
+      font-size: var(--page-heading-font-size);
+      font-weight: bold;
+  }
+}

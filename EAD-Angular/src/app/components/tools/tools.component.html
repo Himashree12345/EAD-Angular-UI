@@ -1,0 +1,77 @@
+<mat-accordion class="expansion-panel-accordian">
+    <mat-action-row class="expansion-panel-title">
+        {{title}}
+    </mat-action-row>
+    <mat-expansion-panel class="div-expansion-panel" [expanded]="true">
+        <div class="cards-row" fxLayout="row" fxLayoutGap="20px">
+
+            <mat-card class="list-card edit-card">
+
+                <mat-card-content class="list-card-content">
+                    <form [formGroup]="form">
+                        <div class="version-control" fxFlex="20">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Version Control<sup>*</sup></mat-label>
+                                <mat-select class="version-dropdown" disableRipple
+                                formControlName="versionControl"
+                                    placeholder="Version Control" (selectionChange)="setVersionControl($event)">
+                                    <mat-option *ngFor="let control of pipelineData['version-control']"
+                                        [value]="control">
+                                        {{control}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="version-control" fxFlex="20">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Repo's<sup>*</sup></mat-label>
+                                <mat-select class="version-dropdown" disableRipple formControlName="repos"
+                                    placeholder="Repos" (selectionChange)="setVersionControl($event)">
+                                    <mat-option *ngFor="let repo of repos" [value]="repo">
+                                        {{repo.name}}
+                                    </mat-option>
+                                </mat-select>
+                                <mat-spinner *ngIf="loading"></mat-spinner>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="language" fxFlex="20">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Language<sup>*</sup></mat-label>
+                                <mat-select class="language-dropdown" disableRipple 
+                                    (selectionChange)="setLanguage($event)" formControlName="language"
+                                    placeholder="Language">
+                                    <mat-option *ngFor="let language of pipelineData['language']" [value]="language">
+                                        {{language}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="environment" fxFlex="20">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Environment<sup>*</sup></mat-label>
+                                <mat-select class="environment-dropdown" disableRipple formControlName="environment"
+                                    placeholder="Language"
+                                    (selectionChange)="setEnvironment($event)">
+                                    <mat-option *ngFor="let env of pipelineData['environment']" [value]="env">
+                                        {{env}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="action-buttons" fxFlex="20">
+                            <button mat-button (click)="submitRequest()">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+
+
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

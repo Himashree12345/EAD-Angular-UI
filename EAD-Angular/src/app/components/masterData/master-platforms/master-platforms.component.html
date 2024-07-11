@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="menu-heading">
+        <app-breadcum [title]="title" [projectName]="projectName"></app-breadcum>
+    </div>
+    
+    <h3 class="title">Add Platforms</h3>
+    <mat-card class="platform-card">
+        <div class="platform-details">
+            <div class="field">
+                <h4 class="box-heading">Platform Number</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter Platform Number">
+                </mat-form-field>
+            </div>
+            <div class="field">
+                <h4 class="box-heading">Category ID</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Category ID</mat-label>
+                    <mat-select>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field">
+                <h4 class="box-heading">Location ID</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Location ID</mat-label>
+                    <mat-select>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field">
+                <h4 class="box-heading">SKU ID</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select SKU ID</mat-label>
+                    <mat-select>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field">
+                <h4 class="box-heading">Platform Service ID</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Platform Service ID</mat-label>
+                    <mat-select>
+                        
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field">
+                <h4 class="box-heading">Platform Resource ID</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Platform Resource ID</mat-label>
+                    <mat-select>
+                        
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field project-id">
+                <h4 class="box-heading">Project ID</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Project ID</mat-label>
+                    <mat-select>
+                       
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field status">
+                <h4 class="box-heading">Status</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Status</mat-label>
+                    <mat-select>
+                        <mat-option value="Active">Active</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="field description">
+                <h4 class="box-heading">Description</h4>
+                <mat-form-field appearance="outline">
+                    <textarea matInput placeholder="Enter Description" rows="3"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="button-row">
+            <button class="cancel-btn" mat-button color="primary" [routerLink]="['/master']">Cancel</button>
+            <button class="submit-btn" mat-button color="primary">Submit</button>
+        </div>
+    </mat-card>
+</div>

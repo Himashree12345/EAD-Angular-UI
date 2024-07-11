@@ -1,0 +1,16 @@
+<div class="breadcum-div">
+     <span [routerLink]="'infra'">{{title}} </span>
+     / <span>{{projectName}}</span>
+     <span>{{subheading}}</span>
+     @if (selectedValue) {
+      / <mat-form-field>
+        <mat-select [(ngModel)]="selectedValue" name="category" (selectionChange)="updateSelectedSection()">
+          @for (category of categories; track $index) {
+            <mat-option  [value]="category.value">{{category.viewValue}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+     }
+     
+    
+</div>

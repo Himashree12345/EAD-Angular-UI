@@ -1,0 +1,115 @@
+.testing-cards {
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+
+    app-card {
+        margin: 50px
+    }
+
+    mat-icon {
+
+        position: absolute;
+    }
+}
+
+.cicd-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.build-container {
+
+    // margin: 0px auto;
+    width: 60%;
+    display: flex;
+    justify-content: right;
+    margin-top: -14px;
+
+    /* margin: 0px auto; */
+    // margin-top: 120px;
+    app-card:first-child {
+        margin-right: 100px;
+    }
+
+    app-card:last-child {
+        margin-right: 100px;
+    }
+}
+
+.dummy-container {
+    width: 40%;
+}
+
+
+.card-div {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+        width: 100px;
+    }
+
+}
+
+.card-div1 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    mat-icon {
+        width: 100px;
+        height: 100px;
+        margin-top: 267px;
+        transform: rotate(90deg);
+
+    }
+}
+
+.card-div2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-self: self-start;
+
+    mat-icon {
+        width: 150px;
+        height: 150px;
+        // margin-top: -25px;   
+        // margin-bottom: 0px;  
+    }
+
+
+    mat-icon.right-arrow-icon {
+        transform: rotateY(180deg);
+        margin-left: -211px;
+    }
+
+}
+.footer-container {
+    width: 100%;
+   background-color: green($color: #000000);
+    text-align: center;
+    margin-top: 25px;
+    button {
+        width: 142px;
+        height: 48px;
+        background: #D5D5D5 0% 0% no-repeat padding-box;
+        border-radius: 29px;
+        opacity: 1;
+        color: white;
+        letter-spacing: 0.02px;
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    .build-container {
+        width: 67%;
+        // margin-left: 156px;
+    }
+}

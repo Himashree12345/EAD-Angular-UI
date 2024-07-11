@@ -1,0 +1,88 @@
+<mat-accordion class="expansion-panel-accordian" *ngIf="key != '' && (key =='Continuos Integration' || key == 'Continuos Deployment')" >
+    <mat-action-row class="expansion-panel-title">
+        {{key}} 
+        <!-- <button mat-button disableRipple  (click)="showDetailListView($event)"><mat-icon> {{showListView ? 'expand_less' : 'expand_more'}}</mat-icon></button> -->
+    </mat-action-row>
+    <mat-expansion-panel class="div-expansion-panel" [expanded]="panelOpenState">
+        <div class="cards-row" fxLayout="row" fxLayoutGap="20px" *ngIf="!showListView">
+            <!-- @for (item of cardInfo; track $index) {
+            <app-card [cardInfo]="item" [cardFor]="key"></app-card>
+            } -->
+            <app-card (click)="addNewCard()"></app-card>
+        </div>
+        <div class="list-cards-row" fxLayout="column" fxLayoutGap="20px" *ngIf="showListView" fxFlexLayout="row">
+           
+             @if (key == 'Continuos Integration' && cicdData['CI'] && cicdData['CI']['tools']) {
+                @for (item of cicdData['CI']['tools']; track $index) {
+                    <app-card-list [cardInfo]="item" [key]="key" ></app-card-list>
+                    }
+            }
+            
+            @if (key == 'Continuos Deployment' && cicdData['CD'] && cicdData['CD']['tools'] ) {
+                @for (item of cicdData['CD']['tools']; track $index) {
+                    <app-card-list [cardInfo]="item" [key]="key" ></app-card-list>
+                    }
+            }
+            <app-card-list *ngIf="key == 'Continuos Integration'"  [filterData]="getCI()" [key]="key"  [addNew]='addCard'></app-card-list>
+            <app-card-list *ngIf="key == 'Continuos Deployment'" [filterData]="getCD()" [key]="key"  [addNew]='addCard'></app-card-list>
+
+           
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion class="expansion-panel-accordian" *ngIf="key != '' && key =='Cloud Platform'" >
+    <mat-action-row class="expansion-panel-title">
+       <span>
+         <img src={{cloudPlatform.icon}} alt=""> {{ service.cloudInfra.name ||  key}} <mat-icon (click)="resetCloudinfra()" *ngIf="service.cloudInfra.name && platformResources.length== 0">edit</mat-icon>
+       </span> 
+        <!-- <button mat-button disableRipple  (click)="showDetailListView($event)"><mat-icon> {{showListView ? 'expand_less' : 'expand_more'}}</mat-icon></button> -->
+    </mat-action-row>
+    <mat-expansion-panel class="div-expansion-panel" [expanded]="true">
+        <div class="cards-row" fxLayout="row" fxLayoutGap="20px" *ngIf="!showListView && service.cloudServiceList.length == 0">
+            @for (item of service.cloudCategories; track $index) {
+            <ng-container *ngIf="!service.cloudInfra.name">
+                <app-card [cardInfo]="item" [cardFor]="key" (cloudPlatForms)="setCloudPlatform($event)"></app-card>
+            </ng-container>
+            }
+        </div> 
+        <div class="cards-row-with-data">
+            <!-- <mat-spinner *ngIf="service.fetchInfra"></mat-spinner> -->
+            <div class="platform-select-container" *ngIf="service.cloudInfra.name">
+                <mat-form-field *ngIf="getCloudInfraName() && !service.fetchInfra" appearance="outline">
+                    <mat-label>Platform</mat-label>
+                    <mat-select disableRipple 
+                    [(ngModel)] ="selectedCloudInfra.platform[0].platformName"
+                    [disabled]="platformResources.length > 0"
+                    >
+                        @for (platform of service.cloudInfra[0].platform; track $index) {
+                            <mat-option (click)="setCloudInfraPlatformResource(platform)" value={{platform.platformName}}>{{platform.platformName}}</mat-option>
+                            }
+                    </mat-select>
+                  </mat-form-field>
+              <!-- <div *ngIf="platformResources.length">Selected Platform : {{selectedCloudInfra.platform[0].platformName}}</div> -->
+
+            </div>
+           
+
+              
+            <div class="list-cards-view" *ngIf="!service.fetchInfra">
+                @for (item of platformResources; track $index) {
+                    <!-- <ng-container *ngIf="!cloudPlatform.name"> -->
+                        <app-card-list [cloudItem]="item"
+                        (deleteSelectedCloudInfraPlatformResource)="removeSelectedCloudInfraPlatformResource($event)"
+                        ></app-card-list>
+                    <!-- </ng-container> -->
+                    }
+                <!-- <app-card-list *ngIf="addCloudService && cloudPlatform.name" [addNew]="false" [addCloudService]="addCloudService"></app-card-list> -->
+                <app-card-list class="empty-mat-card-list" *ngIf="service.cloudInfra.name && !addNewCloudService && selectedCloudInfra.platform[0].platformName" [addNew]="false"  (click)="addCloudServiceNew();"></app-card-list>
+                <app-card-list class="edit-mat-card-list" *ngIf="service.cloudInfra.name && addNewCloudService" [selectedInfra]="selectedCloudInfra" [addNewCloudService]="addNewCloudService"
+                    (emitSelectedCloudInfraResource)="addCloudInfraResource($event)"
+                ></app-card-list>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+

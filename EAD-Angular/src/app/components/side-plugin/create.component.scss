@@ -1,0 +1,103 @@
+.plugin-form {
+    margin-top: 10px;
+    height: 250px;
+    padding-left: 25px;
+    
+}
+
+.form-title {
+    text-align: left;
+    font: normal normal bold 18px/21px Open Sans;
+    font-size: small;
+    letter-spacing: 0.01px;
+    color: #001F3F;
+    opacity: 1;
+    height: 10px;
+    margin-top: 20px;
+}
+
+.inner-card {
+    width: 1140px;
+    font-size: x-small;
+    justify-content: space-between;
+    height: 90px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 1px 2px 6px #EBEBEB;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+    opacity: 1;
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    margin-bottom: 10px;
+    margin-top: 30px;
+    
+}
+
+
+.resource-container, .platform-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 250px;
+    
+}
+
+.resource-container{
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.platform-container {
+    padding: 5px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-right: 700px;
+}
+
+
+
+.button-container {
+  font-size: x-small;
+
+}
+
+.cancel-button,.submit-button{
+    
+        width: 6rem;
+        height: 2rem;
+        border-radius: 1rem;
+        margin: 0 0.6rem 0 1rem; 
+        letter-spacing: 0.02px;
+        opacity: 1;
+        margin-top: 30px;
+        
+    
+}
+
+.cancel-button {
+
+
+color: #001F3F; 
+border: 0.1rem solid #001F3F; 
+opacity: 1;
+margin-left: 0px;
+
+
+
+}
+
+.submit-button {
+    
+    color: white !important;  
+    background-color: #001F3F; 
+    border-radius: 29px;
+    opacity: 1; 
+
+    right: 5px;
+
+
+}
+
+
+
+

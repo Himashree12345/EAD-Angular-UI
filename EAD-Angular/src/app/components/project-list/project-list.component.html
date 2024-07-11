@@ -1,0 +1,37 @@
+<h3 class="title">Project List</h3>
+<mat-card>
+    <div class="mat-table-container">
+      <table mat-table [dataSource]="dataSource" >
+    
+        <!-- Project Title Column -->
+        <ng-container matColumnDef="projectTitle">
+          <th mat-header-cell *matHeaderCellDef> Project Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.projectTitle}} </td>
+        </ng-container>
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+    
+        <!-- Start Date Column -->
+        <ng-container matColumnDef="startDate">
+          <th mat-header-cell *matHeaderCellDef> Start Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+        </ng-container>
+    
+        <!-- End Date Column -->
+        <ng-container matColumnDef="endDate">
+          <th mat-header-cell *matHeaderCellDef> End Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+    </mat-paginator>
+</mat-card>

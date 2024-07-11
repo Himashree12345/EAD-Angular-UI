@@ -1,0 +1,42 @@
+.profile-card {
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    height: 48px;
+
+    .profile-info {
+        width: 75%;
+        margin-right: 10px;
+        align-self: center;
+        
+        .profile-name {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .profile-role {
+            width: 100%;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+
+    .profile-image {
+        width: 25%;
+    }
+
+    img {
+        height: 44px;
+        width: 44px;
+        border-radius: 50%;
+        float: right;
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        // background: #B2CFB1 0% 0% no-repeat padding-box;
+        opacity: 0.58;
+    }
+}

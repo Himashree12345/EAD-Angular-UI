@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="menu-heading">
+        <app-breadcum [title]="title" [projectName]="projectName"></app-breadcum>
+    </div>
+    
+    <h3 class="title">Add Project</h3>
+    <mat-card class="project-card">
+        <div class="project-details">
+            <div class="project-name">
+                <h4 class="box-heading">Project Name</h4>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Enter Project Name">
+                </mat-form-field>
+            </div>
+            <div class="status">
+                <h4 class="box-heading">Status</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Status</mat-label>
+                    <mat-select>
+                        <mat-option value="Active">Active</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="description">
+            <h4 class="box-heading">Description</h4>
+            <mat-form-field appearance="outline">
+                <textarea matInput placeholder="Enter Project Description" rows="4"></textarea>
+            </mat-form-field>
+        </div>
+    
+        <div class="button-row">
+            <button class="cancel-btn" mat-button color="primary" [routerLink]="['/master']">Cancel</button>
+            <button class="submit-btn" mat-button color="primary">Submit</button>
+        </div>
+    </mat-card>
+    
+</div>

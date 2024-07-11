@@ -1,0 +1,32 @@
+<div class="breadcum-div">
+    <app-breadcum [projectName]="projectDetails.projectName" [section]="selectedSection"></app-breadcum>
+
+</div>
+<div class="main-container">
+    <div class="home-container" fxLayout="column">
+        <div class="buttons-bar" fxLayout="row">
+            <button fxFlex="25" mat-button [routerLinkActive]="'active'" routerLink="agile-plan-new">
+                <!-- <span> -->
+                <mat-icon svgIcon="agile-plan-logo"></mat-icon> Agile Plan
+                <!-- </span> -->
+            </button>
+            <!-- <button fxFlex="25" mat-button [routerLinkActive]="'active'" routerLink="provision">
+            <mat-icon svgIcon="provision-logo"></mat-icon>  Provision
+
+        </button>
+    -->
+        <button fxFlex="25" mat-button [routerLinkActive]="'active'" routerLink="execute">
+            <mat-icon svgIcon="execute-logo"></mat-icon>  Execute
+
+        </button>
+            <button fxFlex="25" mat-button [routerLinkActive]="'active'" routerLink="screen-analysis">
+                <mat-icon svgIcon="analytics-logo"></mat-icon> Analysis
+
+            </button>
+        </div>
+        <div class="cards-container" fxLayout="column">
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="menu-heading">
+        <app-breadcum [title]="title" [projectName]="projectName"></app-breadcum>
+    </div>
+    
+    <h3 class="title">Add Platform Service Data</h3>
+    <mat-card class="service-card">
+        <div class="service-details">
+            <div class="row">
+                <div class="field">
+                    <h4 class="box-heading">Platform Service Name</h4>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Name">
+                    </mat-form-field>
+                </div>
+                <div class="field">
+                    <h4 class="box-heading">Description</h4>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Description">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field line2">
+                    <h4 class="box-heading">Category ID</h4>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Category ID</mat-label>
+                        <mat-select>
+                            <mat-option value="Category1">Category 1</mat-option>
+                            <mat-option value="Category2">Category 2</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="field line2">
+                    <h4 class="box-heading">Status</h4>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Status</mat-label>
+                        <mat-select>
+                            <mat-option value="Active">Active</mat-option>
+                            <mat-option value="Completed">Completed</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    
+        <div class="button-row">
+            <button class="cancel-btn" mat-button color="primary" [routerLink]="['/master']">Cancel</button>
+            <button class="submit-btn" mat-button color="primary">Submit</button>
+        </div>
+    </mat-card>
+</div>

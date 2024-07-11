@@ -1,0 +1,24 @@
+<mat-card class="project-card" (click)="setSelectedProject(project)"
+    [routerLink]="['/project-details']" [queryParams]="{ 'load' : 'CP', 'projectName': project.projectName }">
+    <mat-card-header>
+        <mat-card-title class="project-title">
+            <span>{{project.projectName}}</span>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="proj-desc">
+            <p>
+                {{project.projectDescription}}
+            </p>
+        </div>
+    </mat-card-content>
+    <!-- <mat-card-actions class="project-card-actions">
+        <div class="icons-div">
+            <img class="share-img" src="../../../assets/png/male-icon.png" alt="">
+            <img class="share-img" src="../../../assets/png/female-icon.png" alt="">
+            <div class="empty-div">
+                +8
+            </div>
+        </div>
+    </mat-card-actions> -->
+</mat-card>

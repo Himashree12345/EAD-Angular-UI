@@ -1,0 +1,33 @@
+<div class="projects-details-container">
+
+    <div class="breadcumb-div">
+        <app-breadcum [projectName]="dynamicProjectName" [section]=""></app-breadcum>
+    </div>
+
+
+
+    <div class="project-heading-row">
+
+        <div class="mat-card-tools-row">
+            <mat-card class="tools-card" *ngFor="let tool of tools;" (click)="navigateTo(tool)">
+                <mat-card-content>
+                    <img src={{tool.icon}} alt="">
+                    <h4>{{tool.name}}</h4>
+                    <mat-icon>arrow_right_alt</mat-icon>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="action-buttons-div">
+
+
+
+            <div class="expansion-panel-div">
+
+
+
+
+
+            </div>
+        </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="service.isLoggedIn()">
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'side' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56" opened [ngClass]="sideBarOpened ? 'sidenav-menu-open' : 'sidenav-menu-close'"
+            (mouseleave)="closeSideNav()">
+            <mat-nav-list>
+                <mat-list-item class="hamburger">
+                    <button mat-icon-button (click)="sideNavToggle()"><mat-icon> {{sideBarOpened ? 'menu_open' : 'menu'
+                            }}</mat-icon></button>
+
+                </mat-list-item>
+            </mat-nav-list>
+
+            <mat-nav-list (mouseenter)="openSideNav()">
+                @for (item of sideMenuItems; track $index) {
+                @if (item.submenu) {
+                <mat-expansion-panel [class.mat-elevation-z0]="true" class="sidenav-expansion-panel"
+                    [hideToggle]="!sideBarOpened">
+                    <mat-expansion-panel-header class="expansion-panel-header-sidenav">
+                        <mat-icon matListItemIcon>{{item.icon}}</mat-icon> <span *ngIf="sideBarOpened"
+                            matListItemTitle>{{item.name}}</span>
+                    </mat-expansion-panel-header>
+                    <mat-nav-list class="sidebar-submenu-navlist" *ngIf="sideBarOpened">
+                        @for (subMenu of item['submenu']; track $index) {
+                        <mat-list-item (click)="activateItem(item)" [routerLinkActive]="'active'"
+                            routerLink={{subMenu.link}} [queryParams]=" { 'load' : subMenu.content || '' }">
+                            <span class="submenu-item">{{subMenu.name}}</span>
+                        </mat-list-item>
+                        }
+                    </mat-nav-list>
+                </mat-expansion-panel>
+                }
+                @if (!item.submenu) {
+                <mat-list-item [class.active]="item.active" (click)="activateItem(item)"  routerLink={{item.link}}>
+                    <mat-icon matListItemIcon>{{item.icon}}</mat-icon> <span *ngIf="sideBarOpened"
+                        matListItemTitle>{{item.name}}</span>
+                </mat-list-item>
+                }
+                }
+            </mat-nav-list>
+            <mat-nav-list>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <app-top-nav></app-top-nav>
+            <div class="links-container">
+                <router-outlet></router-outlet>
+            </div>
+          
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+   
+</div>

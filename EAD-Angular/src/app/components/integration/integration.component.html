@@ -1,0 +1,40 @@
+<div class="title-container">
+  <h3 class="title">Integration</h3>
+  <div class="custom-search-container">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input type="text" class="search-input" placeholder="Search...">
+    <i class="material-icons filter-icon">filter_list</i>
+  </div>
+
+</div>
+
+<div class="card">
+  <div class="inner-card-container">
+    <mat-card class="inner-card" *ngFor="let plugin of integration_data">
+      <img src="{{ plugin.image }}" alt="{{ plugin.platformName }}">
+      <h5 class="card-title">{{ plugin.platformName }}</h5>
+      <div class="button-container">
+        <button mat-button [ngClass]="{
+          'in-progress': plugin.status === 'in-progress',
+          'installed': plugin.status === 'installed',
+          'failed': plugin.status === 'failed',
+          'success-icon': plugin.status === 'installed',
+          'cancel-icon': plugin.status === 'failed',
+          'progress-icon': plugin.status === 'in-progress'
+        }">
+          <div class="button-text">{{ plugin.status }}
+          <ng-container *ngIf="plugin.status === 'installed'">
+            <i class="material-icons success-icon">done_all</i>
+          </ng-container>
+          <ng-container *ngIf="plugin.status === 'failed'">
+            <i class="material-icons cancel-icon">cancel</i>
+          </ng-container>
+          <ng-container *ngIf="plugin.status === 'in-progress'">
+            <i class="material-icons progress-icon">incomplete_circle</i>
+          </ng-container>
+        </div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

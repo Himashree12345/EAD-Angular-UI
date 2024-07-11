@@ -1,0 +1,9 @@
+<svg id="polyline_black_24dp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_35" data-name="Group 35">
+    <rect id="Rectangle_1622" data-name="Rectangle 1622" width="24" height="24" fill="none"/>
+    <rect id="Rectangle_1623" data-name="Rectangle 1623" width="24" height="24" fill="none"/>
+  </g>
+  <g id="Group_36" data-name="Group 36" transform="translate(3 2)">
+    <path id="Path_23" data-name="Path 23" d="M10.04,6.85,7.3,10H4.5A1.5,1.5,0,0,0,3,11.5v3A1.5,1.5,0,0,0,4.5,16h3a1.6,1.6,0,0,0,.39-.05L15,19.5v1A1.5,1.5,0,0,0,16.5,22h3A1.5,1.5,0,0,0,21,20.5v-3A1.5,1.5,0,0,0,19.5,16h-3a1.5,1.5,0,0,0-1.48,1.27L9,14.26V11.5a1.472,1.472,0,0,0-.04-.36L11.7,8h2.8A1.5,1.5,0,0,0,16,6.5v-3A1.5,1.5,0,0,0,14.5,2h-3A1.5,1.5,0,0,0,10,3.5v3A1.342,1.342,0,0,0,10.04,6.85Z" transform="translate(-3 -2)" fill="#222"/>
+  </g>
+</svg>

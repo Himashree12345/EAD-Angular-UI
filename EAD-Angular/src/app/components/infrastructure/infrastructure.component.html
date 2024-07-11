@@ -1,0 +1,13 @@
+<h3 class="title">{{titleName}}</h3>
+
+<div class="projects-row" fxLayout="row" fxLayoutGap="20px">
+    <ng-container *ngIf="projectList.length; else loading">
+        <app-project-card *ngFor="let project of projectList" [project]="project"></app-project-card>
+    </ng-container>
+
+    <ng-template #loading>
+        <mat-spinner></mat-spinner>
+    </ng-template>
+</div>
+
+<!-- <router-outlet></router-outlet> -->

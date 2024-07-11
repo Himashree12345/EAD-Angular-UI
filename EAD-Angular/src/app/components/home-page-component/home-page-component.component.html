@@ -1,0 +1,43 @@
+<div class="container">
+  <p class="Recently-Viewed-text">Recently Viewed</p>
+  <div class="Recently-Viewed-card">
+    <mat-card *ngFor="let project of recentProjectsData" class="Recently-Viewed">
+      <div class="icon-info-container">
+        <img src="../../../assets/png/Home-Page/server.png" class="icon">
+        <div class="info">
+          <p class="name">{{ project.projectName }}</p>
+          <p class="type">{{ project.projectType }}</p>
+        </div>
+        <img src="../../../assets/png/Home-Page/Path 1028.png" class="arrow-icon">
+      </div>
+    </mat-card>
+  </div>
+  <p class="Recent-Projects-text">Recent Projects</p>
+  <div class="Recent-Projects-card" [routerLink]="['/project-details']" [queryParams]="{ 'load': 'CP', 'projectName': recentProjectsData1 }">
+    <mat-card *ngFor="let recentProjectsData1 of recentProjectsData1"  class="Recent-Projects-info"
+    (click)="viewProjectDetails(recentProjectsData1.projectName)"      >
+      <div class="name-icon-container">
+        <p class="name">{{ recentProjectsData1.projectName }}</p>
+        <img src="../../../assets/png/Home-Page/Path 1028.png" class="arrow-icon">
+      </div>
+      <p class="desc" id="descriptionText">{{ recentProjectsData1.projectDescription }}</p>
+    </mat-card>
+  </div>
+  <p class="Open-Requests-text">Open Requests</p>
+  <div class="Open-Requests-card">
+    <mat-card *ngFor="let openRequestsData of openRequestsData" class="Open-Requests-info">
+      <div class="dummy-container">
+        <p class="id">{{ openRequestsData.changeNumber }}</p>
+        <p class="name">{{ openRequestsData.projectName }}</p>
+        <p class="type">{{ openRequestsData.area }}</p>
+        <p class="date">{{ openRequestsData.createdDate | date: 'dd/MM/yyyy' }}</p>
+        <div class="circle"></div>
+        <p class="description">{{openRequestsData.state }}</p>
+      </div>
+        <mat-card class="detail" [routerLink]="['/provision/details/',openRequestsData.changeNumber]">
+          <p class="details" >View Details</p>
+        </mat-card>
+    </mat-card>
+  </div>
+</div>
+

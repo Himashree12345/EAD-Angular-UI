@@ -1,0 +1,50 @@
+<div class="title-container">
+  <h3 class="title">Plugins</h3>
+  <div class="custom-search-container">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input type="text" class="search-input" placeholder="Search">
+    <button *ngIf="isPluginsPage" mat-button class="createPlugin" (click)="create()">Create Plugin</button>
+  </div>
+</div>
+<div class="table-container">
+  <div class="mat-card-container">
+    <mat-card class="mat-card" *ngFor="let plugin of pluginList">
+      <mat-card-content>
+        <div class="row">
+          <div class="cell ci-cd-cloud">
+            <div class="centered">
+              <div class="category"></div>
+              <div class="ci-cd-cloud-container">
+                <div class="plugin-name">{{ plugin.pluginName }}</div>
+                <div class="ciText images-group">
+                  Continuous Integration
+                  <div *ngFor="let ci of plugin.CI" class="image-container ci-image">
+                    <img [src]="ci.image" alt="{{ ci.service }}" width="25">
+                  </div>
+                </div>
+                <div class="cdText images-group">
+                  Continuous Deployment
+                  <div *ngFor="let cd of plugin.CD" class="image-container cd-image">
+                    <img [src]="cd.image" alt="{{ cd.service }}" width="25">
+                  </div>
+                </div>
+                <div class="cloudText images-group">
+                  Cloud Platform
+                  <div *ngFor="let cloud of plugin.cloud" class="image-container cloud-image">
+                    <img [src]="cloud.image" alt="{{ cloud.service }}" width="25">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cell actions">
+            <div class="actions-container">
+              <button mat-button class="view-details-btn" (click)="viewDetails(plugin.pluginId)">View Details</button>
+              <!-- <button *ngIf="isSelect" mat-button class="select-btn">Select</button> -->
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

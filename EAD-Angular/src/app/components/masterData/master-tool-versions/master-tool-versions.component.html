@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="menu-heading">
+        <app-breadcum [title]="title" [projectName]="projectName"></app-breadcum>
+    </div>
+    
+    <h3 class="title">Add Tool Versions</h3>
+    <mat-card class="tool-version-card">
+        <div class="tool-version-details">
+            <div class="tool-version-name">
+                <div class="field">
+                    <h4 class="box-heading">Version</h4>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Version">
+                    </mat-form-field>
+                </div>
+                <div class="field">
+                    <h4 class="box-heading">Price</h4>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Price</mat-label>
+                        <mat-select>
+                            <mat-option value="Description 1">Description 1</mat-option>
+                            <mat-option value="Description 2">Description 2</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="tool-id-status line2">
+                <div class="field">
+                    <h4 class="box-heading">Tool ID</h4>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Tool ID</mat-label>
+                        <mat-select>
+                            <mat-option value="Active">Active</mat-option>
+                            <mat-option value="Completed">Completed</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="field status line2">
+                    <h4 class="box-heading">Status</h4>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Status</mat-label>
+                        <mat-select>
+                            <mat-option value="Active">Active</mat-option>
+                            <mat-option value="Completed">Completed</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    
+        <div class="button-row">
+            <button class="cancel-btn" mat-button color="primary" [routerLink]="['/master']">Cancel</button>
+            <button class="submit-btn" mat-button color="primary">Submit</button>
+        </div>
+    </mat-card>
+</div>

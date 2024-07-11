@@ -1,0 +1,93 @@
+.title {
+    margin-left: 20px;
+    text-align: left;
+    font-size: var(--card-heading-font-size);
+    letter-spacing: 0.01px;
+    color: #001F3F;
+    opacity: 1;
+}
+
+.box-heading {
+    text-align: left;
+    font: normal normal normal 12px/16px Open Sans;
+    letter-spacing: 0.4px;
+    color: #00000099;
+    opacity: 1;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.cancel-btn {
+    background: #FFFFFF;
+    border: 1px solid #001F3F;
+    border-radius: 29px;
+    color: #001F3F !important;
+    width: 120px;
+    height: 40px;
+    font: normal normal 600 16px/27px Open Sans;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background: #001F3F;
+    border-radius: 29px;
+    color: #FFFFFF !important;
+    width: 120px;
+    height: 40px;
+    font: normal normal 600 16px/27px Open Sans;
+}
+
+.tool-version-card {
+    background: #FFFFFF;
+    box-shadow: 1px 2px 6px #EBEBEB;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+    opacity: 1;
+    margin: 20px;
+    padding: 0 30px 30px 30px;
+    width: 60%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-version-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tool-version-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.tool-id-status {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+}
+
+
+.field {
+    width: 300px;
+}
+
+.status {
+    margin-bottom: 30px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.menu-heading {
+    margin: 20px 0 60px 25px;
+    font-size: var(--page-heading-font-size);
+}
+
+.container {
+    margin: 30px;
+}

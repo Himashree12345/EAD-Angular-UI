@@ -1,0 +1,120 @@
+<mat-card class="list-card" *ngIf="cardInfo && !editCard && !provisionCard">
+    <mat-card-content class="list-card-content">
+        <div class="title" fxFlex="25">{{cardInfo.toolName}}</div>
+
+        <div class="version" fxFlex="25">{{cardInfo.version}}</div>
+
+        <div class="action-buttons" fxFlex="25"><mat-icon (click)="editCardInfo(cardInfo)">edit</mat-icon> <mat-icon
+                (click)="removeCardFromList($event,cardInfo)">delete</mat-icon></div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="card-empty" *ngIf="!cardInfo && !addNew && !provisionCard && !addNewCloudService && !cloudItem" (click)="addNewCard()">
+    {{ addNewCloudService }}
+    <mat-icon>add</mat-icon>
+</mat-card>
+
+
+
+<mat-card class="list-card edit-card" *ngIf="addNew || editCard">
+
+    <mat-card-content class="list-card-content">
+        <div class="tool" fxFlex="25">
+            <mat-form-field appearance="outline">
+                <mat-label>Tools<sup>*</sup></mat-label>
+                <mat-select class="provison-dropdown" disableRipple 
+                    [(ngModel)]="selectedObj.toolName"
+                    (selectionChange)="setTool()">
+                    <ng-container>
+
+                        @for (element of filterData[0]['tools'] ; track $index) {
+                        <mat-option value={{element.toolName}}>{{element.toolName}}</mat-option>
+                        }
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+        <div class="version" fxFlex="25">
+            <mat-form-field appearance="outline">
+                <mat-label>Version<sup>*</sup></mat-label>
+                <mat-select disableRipple [(ngModel)]="selectedObj.version">
+                    <ng-container *ngIf="selectedObj.toolName">
+
+                        @for (item of getVersions(selectedObj.toolName); track $index) {
+                        <mat-divider></mat-divider>
+                        <mat-option value={{item.version}}>{{item.version}}</mat-option>
+                        }
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="shared" fxFlex="25">
+        </div>
+        <div class="action-buttons" fxFlex="25">
+            <button class="discard-button" mat-stroked-button (click)="cancelCard()">
+                X
+                Discard
+            </button>
+            <button (click)=" addNew ? addNewCardToList(key) : updateCardInfo()"
+                [ngClass]="enableAdd() ? 'add-button activate' : ' add-button'" [ngClass]="" mat-stroked-button
+                [disabled]="!enableAdd()">
+                {{ addNew ? 'Add' : 'Update' }}
+            </button>
+            <button *ngIf="editCard" mat-stroked-button class="delete-button">
+                <mat-icon (click)="removeCardFromList($event,cardInfo)">delete</mat-icon>
+            </button>
+
+        </div>
+    </mat-card-content>
+</mat-card>
+
+
+
+<!------ THE BELOW WORKS FOR PROVISION SCREEN CARD-->
+
+
+
+<mat-card class="list-card edit-card new-cloud-service" *ngIf="addNewCloudService">
+    <mat-card-content class="list-card-content">
+
+        <div class="tool" *ngIf="selectedCloudInfra?.['platform'][0]?.platformId">
+            <mat-form-field appearance="outline">
+                <mat-label>Resource<sup>*</sup></mat-label>
+                <mat-select class="provison-dropdown" disableRipple
+                
+                >
+                    <ng-container *ngIf="cloudService.cloudInfra.name">
+                        <mat-form-field class="provison-search-filter" appearance="outline">
+                            <div class="search-box-field">
+                                <mat-icon>search</mat-icon>
+                                <input matInput type="text"  placeholder="Search" [formControl]="provisonCtrl"
+                                    >
+                            </div>
+                        </mat-form-field>
+
+                        @for (resource of getPlatformResources(selectedCloudInfra?.['platform'][0]?.platformId); track $index) {
+                        <mat-option (click)="selectResource(resource)" value={{resource.resourceName}}>{{resource.resourceName}}</mat-option>
+                        }
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<!------------------CLOUD ITEM ------------>
+
+<mat-card class="cloud-card" *ngIf="cloudItem">
+    <mat-card-content class="list-card-content">
+        <div class="status-icon">
+            <img src={{infraIcon}} alt="">  {{cloudItem.resourceName}}
+        </div>
+        <div class="action-div" (click)="removeInfraService(cloudItem)">
+            <button  mat-stroked-button class="delete-button">
+                <mat-icon >delete</mat-icon>
+            </button>
+        </div>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="details-container">
+        <div class="left">
+            <div class="ids">
+                <div>#Req ID: {{changeReqDetail?.requests[0]?.changeNumber}}</div>
+                <div>Project Name: {{changeReqDetail?.requests[0]?.projectName}}</div>
+                <div>Description: CI/CD</div>
+            </div>
+            <mat-card>
+                <mat-card-content *ngIf="getManager">
+                    <div class="row">
+                        <span class="cost">Total Cost</span>
+                        <span class="cost">$0000</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card *ngFor="let req of changeReqDetail?.requests">
+                <mat-card-content>
+                    <div class="row">
+                        <span class="item">{{req.categoryName}}</span>
+                        <span class="item">{{req.platformResourceName}}</span>
+                        <span class="item">{{req.platformServiceName}}</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="right">
+            @for(his of changeReqDetail?.history; track $index;){
+            <mat-card>
+                <mat-card-content>
+                    <div class="row">
+                        @if($index==1)
+                        {
+                        <span class="material-icons" style="color:#00B8D4;"
+                            *ngIf="!isPending() && !toggle && !isAccepted">pending</span>
+                        <span class="material-icons" style="color:#008000;"
+                            *ngIf="toggle && !isRejected">panorama_fish_eye</span>
+                        <span class="material-icons" style="color:#008000;"
+                            *ngIf="isAccepted || isRejected && !isPending()">check_circle</span>
+                        <span class="material-icons" style="color:#E53935;"
+                            *ngIf="isRejected && isPending()">error</span>
+                        }
+                        @if($index!=1)
+                        {
+                        <span class="material-icons" style="color:#008000;"
+                            *ngIf="$index==0 || isAccepted">check_circle</span>
+                        }
+                        <span class="item">{{his.title}}</span>
+                        <div *ngIf="$index==1 && getManager">
+                            <div class="wrapper">
+                                <span class="commentDone"
+                                    *ngIf="changeReqDetail.state=='Rejected'">{{his.comments}}</span>
+                                <div class="container">
+                                    <div class="approval-buttons-container">
+                                        <div class="approval-buttons" *ngIf="!isPending()">
+                                            <button mat-raised-button *ngIf="!isAccepted && !isRejected"
+                                                class="reject-btn" (click)="toggleIt()" id="rejButton">✖Reject</button>
+                                            <button mat-raised-button *ngIf="!isAccepted && !isRejected"
+                                                class="approve-btn" (click)="accept()" id="rejButton">✔Approve</button>
+                                        </div>
+                                    </div>
+                                    <div class="comment-box" *ngIf="toggle && !isAccepted && !isRejected">
+                                        <a href="#" id="crossButton" class="crossButton" (click)="handleCrossClick()">
+                                            &#x2716;
+                                        </a>
+                                        <textarea name="remarks" [(ngModel)]="remarks"></textarea>
+                                        <button class="reject-plan-btn" mat-raised-button (click)="reject()">Reject
+                                            Plan</button>
+                                    </div>
+                                    <div *ngIf="!isPending()" class="status">
+                                        <span class="material-icons" style="color:#008000;"
+                                            *ngIf="isAccepted && $index==1">check_circle</span>
+                                        <span class="material-icons" style="color:#E53935;"
+                                            *ngIf="isRejected && $index==1">error</span>
+                                        <div *ngIf="isAccepted">Approved</div>
+                                        <div *ngIf="isRejected">Rejected</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            }
+        </div>
+    </div>
+</div>

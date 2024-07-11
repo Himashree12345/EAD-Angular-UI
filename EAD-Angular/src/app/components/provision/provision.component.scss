@@ -1,0 +1,219 @@
+/* .cards-row {
+    width: 100%;
+    padding: 20px;
+
+    .list-services-div {
+        min-height: 700px;
+        background: #FBFBFB 0% 0% no-repeat padding-box;
+        border-radius: 20px;
+        opacity: 1;
+        width: 50%;
+
+        .list-card-div {
+            margin: 25px 15px 0px auto;
+            width: 96%;
+
+            .project-id {
+                margin-bottom: 25px;
+                display: flex;
+                justify-content: space-between;
+
+                .pid {
+                    letter-spacing: 0px;
+                    color: #001F3F;
+                    opacity: 1;
+                }
+
+                .cost-label {
+                    font: normal normal normal 18px/21px Open Sans;
+                    letter-spacing: 0px;
+                    color: #001F3F;
+                    opacity: 1;
+                    .cost {
+                        font: normal normal 600 20px/21px Open Sans;
+
+                    }
+                }
+
+            }
+
+            .card-item {
+                width: 100%;
+            }
+        }
+
+
+    }
+
+    .approval-process-div {
+        border-radius: 20px;
+        opacity: 1;
+        width: 50%;
+    }
+} */
+
+.flex-container {
+  display: flex;
+  margin-left: 48px;
+  margin-top: 31px;
+}
+
+.mat-card {
+  flex: 1;
+  margin: 20px;
+}
+
+.Provision-Card{
+  margin-top: 36px;
+  margin-left: 25px;
+  background: #FBFBFB 0% 0% no-repeat padding-box;
+  border-radius: 24px;
+  opacity: 0.8;
+}
+
+.flex-container{
+  .id{
+    font-size: calc(var(--card-heading-font-size) + 2px);
+    color: #001F3F;
+  }
+  .name{
+    font-size: calc(var(--card-heading-font-size) + 2px);
+    color: #001F3F;
+  }
+  .date{
+    font-size: calc(var(--card-heading-font-size) + 2px);
+    color: #001F3F;
+  }
+  .state{
+    font-size: calc(var(--card-heading-font-size) + 2px);
+    color: #001F3F;
+  }
+}
+
+.dummy-container{
+  .id{
+    font-size: calc(var(--card-content-font-size) + 2px);
+    color: #001F3F;
+    font-weight: bold;
+  }
+  .name{
+    font-size: calc(var(--card-content-font-size) + 2px);
+    color: #001F3F;
+    font-weight: bold;
+  }
+  .date{
+    font-size: calc(var(--card-content-font-size) + 2px);
+    color: #001F3F;
+    font-weight: bold;
+  }
+  .state{
+    font-size: calc(var(--card-content-font-size) + 2px);
+    color: #222222;
+  }
+}
+
+  .id{
+    width: 186px;
+    height: 21px;
+  }
+  .name{
+    width: 186px;
+    height: 21px;
+  }
+  .date{
+    width: 186px;
+    height: 21px;
+  }
+  .state{
+    width: 186px;
+    height: 21px;
+  }
+  .detail{
+    position: absolute;
+    right: 40px;
+    justify-content: flex-end;
+    margin-top: 6.5px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    width: 154px;
+    height: 40px;
+    border: 1px solid #001F3F;
+    border-radius: 29px;
+    opacity: 1;
+    cursor: pointer;
+  }
+  .details{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.02px;
+    opacity: 1;
+    color: #001F3F;
+    font-weight: bold;
+  }
+
+.Open-Requests-info{
+  margin-bottom: 8px;
+  margin-left: 24px;
+  width: 1170px;
+  height: 56px;
+  box-shadow: 1px 2px 6px #EBEBEB29;
+  border: 1px solid #F2F2F2;
+  border-radius: 16px;
+  opacity: 1;
+}
+
+.dummy-container{
+  display: flex;
+  margin-left: 24px;
+
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  margin-top: 18px;
+  margin-right: 8px;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.circle-orange{
+  background-color: #FF6900;
+}
+
+.circle-red{
+  background-color: #ff0000;
+}
+
+.circle-green{
+  background-color: #008000;
+}
+
+
+
+button.map-view {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 0.1rem solid #001F3F;
+    opacity: 1;
+    text-align: center;
+    font-size: var(--card-content-font-size);
+    font-weight: bold;
+    letter-spacing: 0.02px;
+    color: #001F3F !important;
+    float: right;
+    margin-right: 20px;
+}
+
+.title {
+    padding-left: 20px;
+    margin-bottom: 0px;
+    font-size: var(--component-heading-font-size);
+    color: #001F3F !important;
+}
+
+td, th{
+    color: #001F3F !important;
+    font-size: var(--card-content-font-size + 2px);
+}

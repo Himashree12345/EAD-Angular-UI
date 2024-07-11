@@ -1,0 +1,14 @@
+.title {
+    padding: 20px;
+    margin-bottom: 0px;
+    font-size: var(--page-heading-font-size);
+}
+
+.projects-row{
+    padding: 0px 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    mat-spinner {
+        margin:0px auto;
+    }
+}

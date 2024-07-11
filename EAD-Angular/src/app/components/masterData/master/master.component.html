@@ -1,0 +1,29 @@
+<h3 class="title">Master</h3>
+<div class="grid-container">
+
+  <div class="left">
+    <div class="grid-item" *ngFor="let card of leftCards">
+      <mat-card>
+        <mat-card-content class="card-content">
+          <div class="card-title">{{ card.title }}</div>
+          <button mat-icon-button (click)="navigateTo(card.targetComponentLink)">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div class="right">
+    <div class="grid-item" *ngFor="let card of rightCards">
+      <mat-card>
+        <mat-card-content class="card-content">
+          <div class="card-title">{{ card.title }}</div>
+          <button mat-icon-button (click)="navigateTo(card.targetComponentLink)">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

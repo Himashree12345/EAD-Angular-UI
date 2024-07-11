@@ -1,0 +1,49 @@
+.projects-details-container {
+    width: 98%;
+    margin: 0px auto;
+}
+
+.breadcumb-div {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.project-heading-row {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+
+    .mat-card-tools-row {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        mat-card {
+            margin: 5px
+        }
+
+    }
+}
+
+.tools-card {
+    width: 305px;
+    height: 96px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 1px 3px 10px #E4E9EA;
+    border: 1px solid #CACED5;
+    border-radius: 20px;
+    opacity: 1;
+
+    mat-card-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}

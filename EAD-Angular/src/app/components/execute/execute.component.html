@@ -1,0 +1,74 @@
+<div class="container">
+  <h3 class="title">Request List</h3>
+  <div class="custom-search-container" *ngIf="!isDeveloper()">
+      <mat-icon class="search-icon">search</mat-icon>
+      <input type="text" class="search-input" placeholder="Search">
+  </div>
+  <div class="icons" *ngIf="isManager() && isDeveloper()">
+      <mat-icon>done</mat-icon>
+      <mat-icon>delete</mat-icon>
+      <i class="material-icons filter-icon" style="margin-top: 1px;">filter_list</i>
+  </div>
+</div>
+
+<mat-card class="details" *ngFor="let data of jsonData">
+      <div class="circle-container"> 
+          <mat-checkbox class="check" *ngIf="isDeveloper()"></mat-checkbox> 
+          <div class="crnum"> 
+              {{data.changeNumber}} 
+          </div>
+
+          <div *ngIf="data.totalEntities" class="circle" style="background: #001F3F 0% 0% no-repeat padding-box;
+              opacity: 1;">
+              {{data.totalEntities}} 
+          </div>
+          <p *ngIf="data.totalEntities">Total Entities</p>
+
+          <div *ngIf="data.inProgress" class="circle" style="background: lightskyblue 0% 0% no-repeat padding-box;">
+              {{ data.inProgress }}
+          </div>
+          <p *ngIf="data.inProgress">In-Progress Entities</p>
+
+          <div *ngIf="data.new" class="circle" style="background: lightblue 0% 0% no-repeat padding-box;">
+              {{ data.new }}
+          </div>
+          <p *ngIf="data.new">New Entities</p>
+
+          <div *ngIf="data.completed" class="circle" style="background:green 0% 0% no-repeat padding-box;">
+              {{data.completed}} 
+          </div>
+          <p *ngIf="data.completed">Completed Entities</p>
+
+          <div *ngIf="data.onHold" class="circle" style="background: orange 0% 0% no-repeat padding-box;">
+              {{ data.onHold }}
+          </div>
+          <p *ngIf="data.onHold">On-Hold Entities</p>
+
+          <div *ngIf="data.approved" class="circle" style="background: lightgreen 0% 0% no-repeat padding-box;">
+              {{ data.approved }}
+          </div>
+          <p *ngIf="data.approved">Approved</p>
+
+          <div *ngIf="data.rejected" class="circle" style="background: lightcoral 0% 0% no-repeat padding-box;">
+              {{ data.rejected }}
+          </div>
+          <p *ngIf="data.rejected">Rejected</p> 
+      </div>
+
+      <div class="button-container"  *ngIf="isDeveloper()"> 
+          <button mat-button class="deploy-button" [hidden]="!isManager()">Deploy</button>
+          <button mat-button class="auto-deploy-button" [hidden]="!isManager()">Auto-Deploy</button>
+          <button mat-button class="view-details-button" [hidden]="isManager()">View Details</button>
+      </div>
+
+      <div class="button-delete" *ngIf="!isManager() && !isDeveloper()">
+          <mat-icon aria-hidden="false" aria-label="deleteIcon" fontIcon="delete"></mat-icon>
+      </div>
+</mat-card>
+
+
+
+
+
+
+

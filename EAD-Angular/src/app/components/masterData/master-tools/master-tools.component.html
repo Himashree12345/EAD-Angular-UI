@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="menu-heading">
+        <app-breadcum [title]="title" [projectName]="projectName"></app-breadcum>
+    </div>
+    
+    <div class="header-container">
+        <h3 class="title">Add Tools</h3>
+        <button class="add-button" mat-button color="primary" (click)="NavigateToToolsProject()">Tool & Project Mapping</button>
+    </div>
+    <mat-card class="role-card">
+        <div class="role-details">
+            <div class="role-name">
+                <div class="field">
+                    <h4 class="box-heading">Tool Name</h4>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Enter Tool Name">
+                    </mat-form-field>
+                </div>
+                <div class="field">
+                    <h4 class="box-heading">Category</h4>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select Category</mat-label>
+                        <mat-select>
+                            <mat-option value="Active">Active</mat-option>
+                            <mat-option value="Completed">Completed</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="field status">
+                <h4 class="box-heading">Status</h4>
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Status</mat-label>
+                    <mat-select>
+                        <mat-option value="Active">Active</mat-option>
+                        <mat-option value="Completed">Completed</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="button-row">
+            <button class="cancel-btn" mat-button color="primary" [routerLink]="['/master']">Cancel</button>
+            <button class="submit-btn" mat-button color="primary">Submit</button>
+        </div>
+    </mat-card>
+    
+</div>

@@ -1,0 +1,293 @@
+.list-card {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 1px 2px 6px #EBEBEB;
+    border: 1px solid #F2F2F2;
+    border-radius: 16px;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    mat-card-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            font: normal normal bold 16px/21px Open Sans;
+            letter-spacing: 0px;
+            color: #222222;
+            opacity: 1;
+        }
+
+        .tool {
+            display: flex;
+
+            img {
+                width: 28px;
+                height: 24px;
+                margin-right: 10px;
+            }
+
+
+        }
+
+        .shared {
+            display: flex;
+            align-items: end;
+        }
+
+        .action-buttons {
+            text-align: right;
+
+            mat-icon {
+                margin: 10px;
+            }
+        }
+    }
+}
+
+.card-empty {
+    width: 100%;
+    background: none;
+    border: 2px dashed #BABABA;
+    opacity: 1;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+
+    mat-icon {
+        width: 50px;
+        height: 50px;
+        color: #BABABA !important;
+        opacity: 1;
+        font-size: 50px;
+        padding: 10px;
+    }
+}
+
+.edit-card {
+    .list-card-content {
+
+        .action-buttons {
+            button {
+
+                height: 40px;
+                border: 1px solid #001F3F;
+                border-radius: 29px;
+                opacity: 1;
+
+            }
+
+            button.discard-button {
+                margin-right: 10px;
+                width: 109px;
+                font: normal normal 600 16px/27px Open Sans;
+                letter-spacing: 0.02px;
+                color: #001F3F;
+                opacity: 1;
+
+                mat-icon {
+                    width: 13px;
+                    height: 13px;
+                    background: #001F3F 0% 0% no-repeat padding-box;
+                    opacity: 1;
+                }
+            }
+
+            button.add-button {
+                width: 100px;
+                background: #D5D5D5 0% 0% no-repeat padding-box;
+                letter-spacing: 0.02px;
+                color: #FFFFFF;
+                border: none;
+
+            }
+
+            button.delete-button {
+                border: none;
+            }
+
+            button.activate {
+                background: #001F3F 0% 0% no-repeat padding-box;
+                border-radius: 29px;
+                opacity: 1;
+            }
+        }
+
+        .tool {
+            .provison-dropdown {
+                .provison-search-filter {
+                    width: 100% !important;
+
+                    // display: flex;
+                    .search-box-field {
+                        display: flex;
+                    }
+                }
+            }
+
+        }
+
+        .shared {
+            display: flex;
+            align-items: center !important;
+
+            .icon-mat {
+                margin-right: 5px;
+            }
+
+            .add-remove-buttons {
+                display: flex;
+                align-items: center;
+                border-radius: 29px;
+                opacity: 1;
+
+                .count-field {
+                    min-width: 56px;
+                    height: 47px;
+                    text-align: center;
+                    border: 1px solid #0000001F;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .increment-button {
+                    background: #DCDCDC 0% 0% no-repeat padding-box;
+                    border-radius: 29px 0px 0px 29px;
+                    opacity: 1;
+                    height: 48px;
+                    width: 48px;
+                }
+
+                .decrement-button {
+                    background: #DCDCDC 0% 0% no-repeat padding-box;
+                    border-radius: 0px 29px 29px 0px;
+                    opacity: 1;
+                    height: 48px;
+                    width: 48px;
+                }
+            }
+        }
+
+    }
+
+    mat-form-field {
+        width: 95%;
+        // border: 1px solid #0000001F;
+        // border-radius: 4px;
+        // opacity: 1;
+        margin-bottom: -22px;
+    }
+}
+
+.provision-card {
+    height: 56px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+    opacity: 1;
+    box-shadow: none;
+
+    .title {
+        font: normal normal 600 16px/21px Open Sans;
+        letter-spacing: 0px;
+        color: #222222;
+        opacity: 1;
+    }
+
+    .tool {
+        display: flex;
+        align-items: center;
+
+        // justify-content: space-around;
+        img {
+            margin-right: 10px;
+        }
+    }
+
+    .version {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .shared {
+        display: flex;
+        align-items: center;
+    }
+
+    .action-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        font: normal normal 600 16px/21px Open Sans;
+        letter-spacing: 0px;
+        color: #222222;
+        opacity: 1;
+    }
+}
+
+.provision-card-status {
+    height: 56px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+    opacity: 1;
+    box-shadow: none;
+
+    .list-card-content {
+        width: 100%;
+
+    }
+}
+
+.new-cloud-service {
+    .tool {
+        mat-form-field {
+            // width: 200px;
+        }
+    }
+}
+
+.new-cloud-service {
+    width: 100% !important;
+
+    .list-card-content {
+        width: 100% !important;
+        justify-content: flex-start;
+
+    }
+
+}
+
+.cloud-card {
+    box-shadow: none;
+    padding: 5px;
+
+    .list-card-content {
+
+        display: flex;
+        justify-content: space-between;
+        // align-self: center;
+        align-items: center;
+
+        .status-icon {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 1px 2px 6px #EBEBEB;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+    opacity: 1;
+
+
+}

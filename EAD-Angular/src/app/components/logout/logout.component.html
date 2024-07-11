@@ -1,0 +1,21 @@
+<div class="profile-card" [matMenuTriggerFor]="menu">
+    <div class="profile-info">
+        <div class="profile-name">
+            {{userProfile?.firstName  + ' ' + userProfile?.lastName }}
+        </div>
+        <!-- <div class="profile-role">
+            {{userProfile?.email}}
+        </div> -->
+    </div>
+    <div class="profile-image">
+        <img mat-card-md-image src="../../../assets/png/male-icon.png" alt="">
+    </div>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon svgIcon="manage-account"></mat-icon>
+            Manage Account</button>
+        <button mat-menu-item (click)="logout()">
+            <mat-icon svgIcon="logout"></mat-icon>
+            Logout</button>
+    </mat-menu>
+</div>

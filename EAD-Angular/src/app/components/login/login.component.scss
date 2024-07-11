@@ -1,0 +1,121 @@
+.outer-center-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    border: 2px solid green($color: #000000);
+    background: url(../../../assets/png/login_background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    // background-origin:content-box;
+
+    .center-login-div {
+        width: 50%;
+        padding: 40px;
+        // min-height: 500px;
+        // background: transparent url('img/Rectangle 1594.png') 0% 0% no-repeat padding-box;
+        background: white;
+        box-shadow: 0px 3px 16px #00000029;
+        border-radius: 20px;
+        opacity: 1;
+        // margin: 0px auto;
+        display: flex;
+        // justify-content: center;
+        flex-direction: column;
+
+        .logo-div {
+            width: 100%;
+            text-align: center;
+
+            img {
+                width: 164px;
+                height: 133px
+            }
+        }
+
+        .section-div {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .svg-div {
+                // display: flex;
+                // justify-content: center;
+                width: 45%;
+                // background-color: lightcoral;
+                // text-align: center;
+
+                img {
+                    // width: 75%;
+
+                }
+            }
+
+            .login-form-div {
+                width: 45%;
+                margin: 0px auto;
+                .welcome-text {
+                    text-align: center;
+                }
+
+                .login-form {
+                    width: 380px;
+                    height: 333px;
+                    border: 1px solid white;
+                    margin:0px auto;
+
+                    .form-field-login {
+                        width: 100%;
+                        height: 65px;
+                        margin-bottom: 20px;
+                        mat-form-field {
+                            width: 100%;
+                        }
+
+                        .login-button {
+                            width: 100%;
+                            background: #001F3F 0% 0% no-repeat padding-box;
+                            border-radius: 4px;
+                            opacity: 1;
+                            color: white;
+                        }
+
+                    }
+
+                    .sso-div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        button {
+                            width: 48%;
+                            // height: 75px;
+                            // display: flex;
+                            padding: 10px;
+                            img {
+                                height: 20px;
+                                width: 20px;
+                            }
+                            span{
+                                margin-left: 10px;
+                            }
+                        }
+                        
+                    }
+
+                .optional-label {
+                    
+                }
+
+                }
+
+            }
+        }
+    }
+}
+.error{
+    color: red;
+    margin-bottom: 10px;
+}

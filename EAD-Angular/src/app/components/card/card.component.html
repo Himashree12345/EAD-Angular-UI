@@ -1,0 +1,58 @@
+<mat-card class="matcard" *ngIf="cardFor && !showListView && cardFor !='Cloud Platform'">
+
+    <div class="card-content">
+        @if (cardFor != 'updateDialog') {
+        <div class="card-title">
+            <p>{{cardInfo.category || cardInfo.heading }} </p>
+        </div>
+
+        }
+        <div class="card-image">
+            <img src={{cardInfo.image}} alt=" aws service">
+        </div>
+        <div class="card-footer">
+
+            <p class="card-service">{{cardInfo.service || cardInfo.subtext }} </p>
+
+
+        </div>
+
+
+    </div>
+</mat-card>
+
+
+<mat-card class="matcard cloud-platform" *ngIf="cardFor && !showListView && cardFor =='Cloud Platform'"
+    (click)="cloudPlatform(cardInfo)">
+
+    <div class="card-content">
+
+        <div class="card-image">
+            <mat-icon class="check_tick">check</mat-icon>
+            <img src={{icons[cardInfo.categoryName]}} alt=" aws service">
+
+        </div>
+        <div class="card-footer">
+
+            <p class="card-service">{{cardInfo.categoryName }} </p>
+
+
+        </div>
+
+
+    </div>
+</mat-card>
+
+
+<mat-card *ngIf="!cardFor && !cp" class="matcard-empty">
+    <mat-icon>add</mat-icon>
+</mat-card>
+
+<ng-container></ng-container>
+
+<mat-card *ngIf="cp" class="matcard-empty cp" (click)="addNewCloudService()">
+    <mat-icon>add</mat-icon>
+</mat-card>
+
+
+<div class="some-div"></div>

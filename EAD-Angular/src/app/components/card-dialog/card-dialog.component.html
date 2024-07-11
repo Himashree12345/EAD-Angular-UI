@@ -1,0 +1,9 @@
+<div class="dialog-content" mat-dialog-content>
+  @for (item of tempData['CICD-flow']; track $index) {
+    <app-card class="modal-app" [cardInfo]="item" [cardFor]="'Testing-Cards'"></app-card>
+  }
+</div>
+
+<div mat-dialog-actions class="dialog-footer">
+    <button mat-button >Submit</button>
+  </div>

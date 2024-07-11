@@ -1,0 +1,106 @@
+.container{
+    margin: 20px;
+}
+.title-btns {
+    display: flex;
+    align-items: center;   
+}
+
+.user-project-btn{
+    margin-left: 23% !important;
+}
+.user-role-btn, .user-project-btn{
+    background: #FFFFFF;
+    border: 1px solid #001F3F;
+    border-radius: 29px;
+    color: #001F3F !important;
+    width: auto;
+    height: 40px;
+    font: normal normal 600 16px/27px Open Sans;
+    margin-left: 15px;
+}
+.title {
+    margin-left: 20px;
+    text-align: left;
+    font-size: var(--card-heading-font-size);
+    letter-spacing: 0.01px;
+    color: #001F3F;
+    opacity: 1;
+}
+
+.box-heading {
+    text-align: left;
+    font: normal normal normal 12px/16px Open Sans;
+    letter-spacing: 0.4px;
+    color: #00000099;
+    opacity: 1;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+
+.cancel-btn {
+    background: #FFFFFF;
+    border: 1px solid #001F3F;
+    border-radius: 29px;
+    color: #001F3F !important;
+    width: 120px;
+    height: 40px;
+    font: normal normal 600 16px/27px Open Sans;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background: #001F3F;
+    border-radius: 29px;
+    color: #FFFFFF !important;
+    width: 120px;
+    height: 40px;
+    font: normal normal 600 16px/27px Open Sans;
+}
+
+.user-card {
+    background: #FFFFFF;
+    box-shadow: 1px 2px 6px #EBEBEB;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+    opacity: 1;
+    margin: 20px;
+    padding: 0 30px 30px 30px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    row-gap: 0px;
+    column-gap: 30px;;
+}
+
+.user-name,
+.email,
+.first-name,
+.last-name,
+.password,
+.project-id,
+.status {
+    width: 100%; 
+    margin-bottom: 10px;
+    height: 80px;
+}
+
+.button-row {
+    margin-top: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+    
+}
+
+.menu-heading {
+    margin: 20px 0 60px 25px;
+    font-size: var(--page-heading-font-size);
+}

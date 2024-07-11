@@ -1,0 +1,35 @@
+<div class="project-heading-row" *ngIf="section !='Tools'">
+  
+  <div class="action-buttons-div">
+    <button class="map-view" mat-button (click)="redirectToMapView()">
+
+      <mat-icon svgIcon="tree-view"></mat-icon>
+      Map view
+      <mat-icon class="new-tab" svgIcon="new-tab"></mat-icon>
+
+    </button>
+
+    <button (click)="submitProposal(section)" class="project-submit-button" mat-button>
+      Submit
+    </button>
+  </div>
+</div>
+
+
+<div class="expansion-panel-div" *ngFor="let key of getKeys();">
+
+  <ng-container *ngIf="(section == 'CP' && key == 'Cloud Platform') || section == ''">
+    <app-accordian-dropdown [cardInfo]="cardInfo[key]" [key]="key"></app-accordian-dropdown>
+
+  </ng-container>
+
+  <ng-container *ngIf="(section == 'CICD' && key != 'Cloud Platform' && cicdCategory.length > 0) || section == ''">
+    <app-accordian-dropdown [cicdData]="cicdTools"  [cicdInfo]="cicdCategory"  [key]="key"></app-accordian-dropdown>
+    
+  </ng-container>
+  <ng-container *ngIf="(section == 'Tools' && key == 'Tools') || section == ''">
+    <app-tools></app-tools>
+  </ng-container>
+
+
+</div>

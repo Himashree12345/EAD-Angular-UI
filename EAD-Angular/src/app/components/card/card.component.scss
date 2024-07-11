@@ -1,0 +1,149 @@
+.matcard {
+    width: 186px;
+    height: 167px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #F2F2F2;
+    border-radius: 16px;
+    opacity: 1;
+    box-shadow: none;
+    font-weight: 400;
+
+    .card-content {
+        height: 160px;
+        text-align: center;
+        font: normal normal 600 14px/21px Open Sans;
+        letter-spacing: 0px;
+        color: #222222;
+        opacity: 1;
+        margin-top: 10px;
+    }
+
+
+    .mat-card-title {
+        letter-spacing: var(--unnamed-character-spacing-0);
+        color: var(--unnamed-color-222222);
+        text-align: center;
+        font: normal normal 600 14px/21px Open Sans;
+        letter-spacing: 0px;
+        color: #222222;
+        opacity: 1;
+    }
+
+    .card-footer {
+        margin-top: 10px;
+    }
+
+    .card-button {
+        background: #00B8D4 0% 0% no-repeat padding-box;
+        border-radius: 29px;
+        opacity: 1;
+        width: 138px;
+        height: 36px;
+        color: white;
+        font-weight: 400;
+    }
+
+    .card-subtext {
+        text-align: center;
+        font: normal normal normal 14px/21px Open Sans;
+        letter-spacing: 0.02px;
+        color: #222222;
+        text-transform: capitalize;
+        opacity: 1;
+    }
+
+    .cicd-card-buttons {
+        display: flex;
+        justify-content: space-evenly;
+
+        mat-icon {
+            margin-left: 5px;
+        }
+    }
+
+    // margin-bottom: 25px;
+
+}
+
+.matcard-empty {
+    min-width: 186px;
+    min-height: 165px;
+    background: none;
+    border: 2px dashed #BABABA;
+    opacity: 1;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+
+    mat-icon {
+        width: 50px;
+        height: 50px;
+        color: #BABABA !important;
+        opacity: 1;
+        font-size: 50px;
+    }
+
+}
+
+.cp {
+    width: 126px;
+    height: 91px;
+    border: 2px dashed #BABABA;
+    border-radius: 16px;
+    opacity: 1;
+}
+
+.cloud-platform {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    border-radius: 16px;
+
+    width: 126px;
+    height: 91px;
+
+    &:hover {
+        width: 128px;
+        height: 95px;
+        opacity: 1;
+
+        .check_tick {
+            display: block !important;
+            margin-left: -10px;
+
+        }
+    }
+
+    .card-content {
+        // display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .card-image {
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 57px;
+                height: 32px;
+            }
+
+            .check_tick {
+                display: none;
+            }
+
+        }
+
+        .card-service {
+            font: normal normal 600 14px/21px Open Sans;
+            letter-spacing: 0.02px;
+            color: #222222;
+            opacity: 1;
+        }
+    }
+}

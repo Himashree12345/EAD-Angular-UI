@@ -1,0 +1,46 @@
+<div class="testing-cards">
+    @for (card of cardInfo['Testing-Cards']; track $index) {
+    <div class="card-div1">
+        <app-card [cardInfo]="card" [cardFor]="'Testing-Cards'"></app-card>
+        <mat-icon svgIcon="left-arrow"></mat-icon>
+    </div>
+    }
+</div>
+<div class="cicd-container">
+    @for (cicd of cardInfo['CICD-flow']; track $index) {
+    <div class="card-div">
+        <app-card [cardInfo]="cicd" [cardFor]="'CICD-flow'"></app-card>
+        @if ($index == 0) {
+        <mat-icon svgIcon="left-arrow"></mat-icon>
+        }
+        @if ($index != 0 && $index != cardInfo['CICD-flow'].length-1 ) {
+        <mat-icon svgIcon="right-arrow"></mat-icon>
+        }
+    </div>
+
+
+    }
+</div>
+
+<div class="build-container">
+    @for (card of cardInfo['buld-tools']; track $index) {
+    <div class="card-div2">
+        @if ($index==0) {
+        <mat-icon svgIcon="down-left-arrow"></mat-icon>
+
+        }
+        @if ($index==1) {
+        <mat-icon class="right-arrow-icon" svgIcon="down-left-arrow"></mat-icon>
+
+        }
+        <app-card [cardInfo]="card" [cardFor]="'build-tools'"></app-card>
+    </div>
+
+    }
+</div>
+
+<div class="footer-container">
+    <button mat-button (click)="goBack()">
+        Back
+    </button>
+</div>

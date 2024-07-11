@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row">
+      <div class="left-side">
+        <h2 class="config-test">Configuration</h2>
+      </div>
+      <div class="right-side">
+        <div class="calendar-options">
+          <div
+            class="calendar-option"
+            [class.selected]="selectedCalendar === 'month'"
+            (click)="selectCalendar('month')"
+          >
+            <span [class.selected]="selectedCalendar === 'month'">Month</span>
+          </div>
+          <div
+            class="calendar-option"
+            [class.selected]="selectedCalendar === 'day'"
+            (click)="selectCalendar('day')"
+          >
+            <span [class.selected]="selectedCalendar === 'day'">Day</span>
+          </div>
+          <div
+            class="calendar-option"
+            [class.selected]="selectedCalendar === 'week'"
+            (click)="selectCalendar('week')"
+          >
+            <span [class.selected]="selectedCalendar === 'week'">Week</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row2">
+        <div class="card1">
+            <h3>Add Widget</h3>
+            <div class="dropdown" [class.open]="isDropdownOpen">
+              <button class="dropbtn" (click)="toggleDropdown()">
+                {{ isDropdownOpen ? 'Search Widget' : (selectedWidget ? selectedWidget.name : 'Select Widget')}}
+                <span class="arrow-down"></span>
+              </button>
+              <div class="dropdown-content" [class.show]="isDropdownOpen">
+                <input
+                  class="search-input"
+                  type="text"
+                  placeholder="Search Widgets..."
+                  [(ngModel)]="searchTerm"
+                />
+                <a href="#" *ngFor="let widget of getFilteredWidgets()" (click)="selectWidget(widget)">
+                  {{ widget.name }}
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+
+      <div class="card2">
+        <h3>Build Usage</h3>
+        <p class="um">{{ usageMinutes }}</p>
+        <p class="mtm">Minutes this month</p>
+      </div>
+
+      <div class="card3">
+        <h3>Build Health Overview</h3>
+        <div class="container-card-3">
+            <div class="card3-container">
+                <p class="um">{{ usageMinutes }}</p>
+                <p class="mtm">Minutes This Month</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-row">
+      <div class="card" *ngFor="let card of cards; let i = index">
+        <div class="card-item">
+          <h5 class="card-title">{{ card.title }}</h5>
+          <h3 class="card-text">{{ card.number }}</h3>
+          <p class="card-text">{{ card.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
