@@ -59,6 +59,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.webappname }}
-        package: ./dist
+        package: dist
         startup-command: pm2 serve /home/site/wwwroot/ead/browser --no-daemon --spa
          
