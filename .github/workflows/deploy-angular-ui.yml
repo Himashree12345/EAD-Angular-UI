@@ -1,0 +1,59 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch:
+
+env:
+  webappname: WEB-TEC-SA-EAD-GITHUBACTIONS-DEV
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Update configs
+      run: cp -r development.json ../src/assets/environments/development.json
+      working-directory: ./EADP-Angular/configs
+
+    - name: Use Node 18.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: npm install, build
+      run: |
+        npm install --force
+        npm run build --prod
+
+    - name: Archive build
+      uses: actions/upload-artifact@v2
+      with:
+        name: drop
+        path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download build
+      uses: actions/download-artifact@v2
+      with:
+        name: drop
+        
+    - name: Azure Login
+      uses: Azure/login@v2.1.0
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: Azure App Service Deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.webappname }}
+        package: ./drop
+        startup-command: pm2 serve /home/site/wwwroot/ead/browser --no-daemon --spa
+        restart: true        
