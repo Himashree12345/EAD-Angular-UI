@@ -27,7 +27,7 @@ jobs:
       run: |
         npm install --force
         npm run build --prod
-
+      working-directory: EAD-Angular
     - name: Archive build
       uses: actions/upload-artifact@v2
       with:
