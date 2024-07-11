@@ -53,12 +53,13 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: dist
-      
+    - name: ls
+      run: ls /home/runner/work/EAD-Angular-UI/EAD-Angular-UI/dist
         
     - name: Azure App Service Deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.webappname }}
-        package: dist
+        package: /home/runner/work/EAD-Angular-UI/EAD-Angular-UI/dist
         startup-command: pm2 serve /home/site/wwwroot/ead/browser --no-daemon --spa
          
