@@ -16,7 +16,7 @@ jobs:
 
     - name: Update configs
       run: cp -r development.json ../src/assets/environments/development.json
-      working-directory: ./EADP-Angular/configs
+      working-directory: /configs
 
     - name: Use Node 18.x
       uses: actions/setup-node@v2
