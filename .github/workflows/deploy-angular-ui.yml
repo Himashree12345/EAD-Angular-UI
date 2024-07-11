@@ -54,12 +54,12 @@ jobs:
       with:
         name: dist
     - name: ls
-      run: ls /home/runner/work/EAD-Angular-UI/EAD-Angular-UI/dist
+      run: ls /home/runner/work/EAD-Angular-UI/EAD-Angular-UI
         
     - name: Azure App Service Deploy
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.webappname }}
-        package: /home/runner/work/EAD-Angular-UI/EAD-Angular-UI/dist
+        package: /home/runner/work/EAD-Angular-UI/EAD-Angular-UI/
         startup-command: pm2 serve /home/site/wwwroot/ead/browser --no-daemon --spa
          
