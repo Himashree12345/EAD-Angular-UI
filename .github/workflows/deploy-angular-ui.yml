@@ -29,14 +29,14 @@ jobs:
         npm run build --prod
       working-directory: EAD-Angular
     
-    - name: List directory
-      run: ls EAD-Angular
+    # - name: List directory
+    #   run: ls EAD-Angular
       
     - name: Archive artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: Build
-        path: dist
+        name: dist
+        path: EAD-Angular/dist
   # deploy:
   #   needs: build
   #   runs-on: ubuntu-latest
