@@ -30,7 +30,7 @@ jobs:
       working-directory: EAD-Angular
     
     - name: List directory
-      run: ls ./dist/ead
+      run: ls EAD-Angular
       
     - name: Archive artifacts
       uses: actions/upload-artifact@v3
