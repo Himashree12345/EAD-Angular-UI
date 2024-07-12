@@ -69,27 +69,27 @@ jobs:
                file.write(f'Platform Resources: {u_platform_resources}\n')
                file.write(f'Platform Environment Type: {u_environment_type}\n')
 
-            container_name = os.getenv('AZURECONTAINER')
-            connection_string = os.getenv('CONNECTION_STRING')
-            blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+           container_name = os.getenv('AZURECONTAINER')
+           connection_string = os.getenv('CONNECTION_STRING')
+           blob_service_client = BlobServiceClient.from_connection_string(connection_string)
     
-            outer_folder_name = datetime.now().strftime('%d-%m-%Y')
+           outer_folder_name = datetime.now().strftime('%d-%m-%Y')
     
-            container_client = blob_service_client.get_container_client(container_name)
-            blob_list = container_client.list_blobs(name_starts_with=outer_folder_name)
-            inner_folder_count = len(set(blob.name.split('/')[1] for blob in blob_list if '/' in blob.name))
+           container_client = blob_service_client.get_container_client(container_name)
+           blob_list = container_client.list_blobs(name_starts_with=outer_folder_name)
+           inner_folder_count = len(set(blob.name.split('/')[1] for blob in blob_list if '/' in blob.name))
     
-            inner_folder_name = outer_folder_name + '/BuildId:' + os.getenv('BUILD_BUILDID')
-            blob_name = inner_folder_name + '/Get_ChangeRequest.txt'
-            blob_client = blob_service_client.get_blob_client(container_name, blob_name)
+           inner_folder_name = outer_folder_name + '/BuildId:' + os.getenv('BUILD_BUILDID')
+           blob_name = inner_folder_name + '/Get_ChangeRequest.txt'
+           blob_client = blob_service_client.get_blob_client(container_name, blob_name)
     
-            try:
+           try:
                 with open(os.path.join(folder_name, 'Get_ChangeRequest.txt'), 'rb') as data:
                     blob_client.upload_blob(data)
-            except Exception as ex:
+           except Exception as ex:
                 print('Exception:')
                 print(ex)
-             "    
+           "    
            
              
            
