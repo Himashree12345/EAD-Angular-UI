@@ -164,7 +164,7 @@ jobs:
               workitem_api = '${{ secrets.WORKITEM_API }}'
               id = '${{ github.event.client_payload.workitemid }}'
               organization = '${{ secrets.ADO_ORG_URL }}'
-              pat = os.getenv('servicecr')  # Replace with your PAT stored as a secret variable
+              pat = '${{ secrets.SERVICECR }}' # Replace with your PAT stored as a secret variable
               
               # Prepare the request
               headers = {
