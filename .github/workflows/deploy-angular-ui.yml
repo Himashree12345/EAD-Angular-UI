@@ -73,7 +73,7 @@ jobs:
            blob_list = container_client.list_blobs(name_starts_with=outer_folder_name)
            inner_folder_count = len(set(blob.name.split('/')[1] for blob in blob_list if '/' in blob.name))
     
-           inner_folder_name = outer_folder_name + '/BuildId:' + env.BUILD_BUILDID
+           inner_folder_name = outer_folder_name + '/BuildId:' + os.getenv('BUILD_BUILDID')
            blob_name = inner_folder_name + '/Get_ChangeRequest.txt'
            blob_client = blob_service_client.get_blob_client(container_name, blob_name)
     
