@@ -45,9 +45,9 @@ jobs:
            import os
            import sys
    
-           title = '${{ needs.Get_CR_Details.outputs.TITLE }}'
-           PlatformResource = '${{ needs.Get_CR_Details.outputs.PlatformResource }}'
-           Environment = '${{ needs.Get_CR_Details.outputs.Environment }}'
+           title = '${{ github.event.client_payload.title }}'
+           PlatformResource = '${{ github.event.client_payload.PlatformResource }}'
+           Environment = '${{ github.event.client_payload.environment }}'
           
            with open(os.path.join(os.getenv('GITHUB_WORKSPACE'), 'change_request_data.txt'), 'w') as f:
                f.write(title + '\n')
@@ -70,8 +70,8 @@ jobs:
                file.write(f'Platform Resources: {u_platform_resources}\n')
                file.write(f'Platform Environment Type: {u_environment_type}\n')
 
-           container_name = ${{ secrets.AZURECONTAINER }}
-           connection_string = ${{ secrets.CONNECTION_STRING }}
+           container_name = '${{ secrets.AZURECONTAINER }}'
+           connection_string = '${{ secrets.AZURECONTAINER }}'
            blob_service_client = BlobServiceClient.from_connection_string(connection_string)
     
            outer_folder_name = datetime.now().strftime('%d-%m-%Y')
