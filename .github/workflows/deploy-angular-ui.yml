@@ -1,6 +1,8 @@
 name: Build and Deploy
 
-on: [push]
+on: 
+ repository_dispatch:
+    types: [webhook-event]
 
 env:
   webappname: WEB-TEC-SA-EAD-GITHUBACTIONS-DEV
