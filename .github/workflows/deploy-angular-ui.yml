@@ -16,6 +16,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
+    - name: Get CR Details
+      run: |
+        echo "Title: ${{ github.event.client_payload.title }}"
+        echo "PlatformResource: ${{ github.event.client_payload.PlatformResource }}"
+        echo "Environment: ${{ github.event.client_payload.environment }}"
+        
     - name: Update configs
       run: cp -r development.json ../src/assets/environments/development.json
       working-directory: EAD-Angular/configs
