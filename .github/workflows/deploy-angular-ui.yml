@@ -27,72 +27,77 @@ jobs:
      needs: Get_CR_Details
      runs-on: ubuntu-latest
      steps:
-     - name: Install dependencies
+     - name: Install dependenciesc
+       env:
+         TITLE: ${{ needs.Get_CR_Details.outputs.TITLE }}
+         PLATFORM_RESOURCE: ${{ needs.Get_CR_Details.outputs.PlatformResource }}
+         ENVIRONMENT: ${{ needs.Get_CR_Details.outputs.environment }}
        run: |
         python -m pip install requests
         pip install azure-storage-blob
         python -m pip install --upgrade pip
      - name: Upload to Blob
        run: |
-        from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
-        from datetime import datetime
-        import os
-        import sys
-
-        title=${{ needs.Get_CR_Details.outputs.TITLE }}
-        PlatformResource=${{ needs.Get_CR_Details.outputs.PlatformResource }}
-        Environment=${{ needs.Get_CR_Details.outputs.environment }}
-
-        
-        echo "title" > change_request_data.txt
-        echo "PlatformResource" >> change_request_data.txt
-        echo "Environment" >> change_request_data.txt
-
-        
-        with open(os.path.join(os.getenv('GITHUB_WORKSPACE'), 'change_request_data.txt'), 'r') as f:
-            number = f.readline().strip()
-            u_platform_resources = f.readline().strip()
-            u_environment_type = f.readline().strip()
-
-        folder_name = datetime.now().strftime("%d-%m-%Y_%H%M%S")
-        os.makedir.s(folder_name, exist_ok=True)
-        log_file = open(os.path.join(folder_name, "task_log.txt"), "w")
-        sys.stdout = log_file
-        sys.stderr = log_file  
-
-        with open(os.path.join(folder_name, "Get_ChangeRequest.txt"), "w") as file:
-            file.write(str(number) + "\n")
-            file.write(f"Platform Resources: {u_platform_resources}\n")
-            file.write(f"Platform Environment Type: {u_environment_type}\n")
+           python -c "
+              from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+              from datetime import datetime
+              import os
+              import sys
+      
+             title = os.getenv('TITLE')
+             PlatformResource = os.getenv('PLATFORM_RESOURCE')
+             Environment = os.getenv('ENVIRONMENT')
+          
+              
+              echo "title" > change_request_data.txt
+              echo "PlatformResource" >> change_request_data.txt
+              echo "Environment" >> change_request_data.txt
+      
+              
+              with open(os.path.join(os.getenv('GITHUB_WORKSPACE'), 'change_request_data.txt'), 'r') as f:
+                  number = f.readline().strip()
+                  u_platform_resources = f.readline().strip()
+                  u_environment_type = f.readline().strip()
+      
+              folder_name = datetime.now().strftime("%d-%m-%Y_%H%M%S")
+              os.makedir.s(folder_name, exist_ok=True)
+              log_file = open(os.path.join(folder_name, "task_log.txt"), "w")
+              sys.stdout = log_file
+              sys.stderr = log_file  
+      
+              with open(os.path.join(folder_name, "Get_ChangeRequest.txt"), "w") as file:
+                  file.write(str(number) + "\n")
+                  file.write(f"Platform Resources: {u_platform_resources}\n")
+                  file.write(f"Platform Environment Type: {u_environment_type}\n")
+                 
+              # Get the container name and connection string from the environment variables
+              container_name = ${{ secrets.AZURECONTAINER }}
+              connection_string = ${{ secrets.CONNECTION_STRING }}
+              blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+          
+              # Get the outer folder name
+              outer_folder_name = datetime.now().strftime("%d-%m-%Y")
+      
+               # Count the inner folders in the outer folder
+              container_client = blob_service_client.get_container_client(container_name)
+              blob_list = container_client.list_blobs(name_starts_with=outer_folder_name)
+              inner_folder_count = len(set(blob.name.split('/')[1] for blob in blob_list if '/' in blob.name))
+      
+              # Get the inner folder name
+              inner_folder_name = outer_folder_name + "/BuildId:" + os.getenv('BUILD_BUILDID')
+              # Get a BlobClient object for the blob we want to upload
+              blob_name = inner_folder_name + "/Get_ChangeRequest.txt"
+              blob_client = blob_service_client.get_blob_client(container_name, blob_name)
+      
+              # Upload the file
+              try:
+                  with open(os.path.join(folder_name, "Get_ChangeRequest.txt"), "rb") as data:
+                      blob_client.upload_blob(data)
+              except Exception as ex:
+                  print('Exception:')
+                  print(ex)
+           "    
            
-        # Get the container name and connection string from the environment variables
-        container_name = ${{ secrets.AZURECONTAINER }}
-        connection_string = ${{ secrets.CONNECTION_STRING }}
-        blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-    
-        # Get the outer folder name
-        outer_folder_name = datetime.now().strftime("%d-%m-%Y")
-
-         # Count the inner folders in the outer folder
-        container_client = blob_service_client.get_container_client(container_name)
-        blob_list = container_client.list_blobs(name_starts_with=outer_folder_name)
-        inner_folder_count = len(set(blob.name.split('/')[1] for blob in blob_list if '/' in blob.name))
-
-        # Get the inner folder name
-        inner_folder_name = outer_folder_name + "/BuildId:" + os.getenv('BUILD_BUILDID')
-        # Get a BlobClient object for the blob we want to upload
-        blob_name = inner_folder_name + "/Get_ChangeRequest.txt"
-        blob_client = blob_service_client.get_blob_client(container_name, blob_name)
-
-        # Upload the file
-        try:
-            with open(os.path.join(folder_name, "Get_ChangeRequest.txt"), "rb") as data:
-                blob_client.upload_blob(data)
-        except Exception as ex:
-            print('Exception:')
-            print(ex)
-         
-     
     
   build:
     needs: Upload_to_Blob
