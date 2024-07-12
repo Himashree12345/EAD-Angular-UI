@@ -6,8 +6,7 @@ on:
 
 env:
   webappname: WEB-TEC-SA-EAD-GITHUBACTIONS-DEV
-  BUILD_BUILDID: ${{ github.run_id }}
-
+  BUILD_BUILDID: ${{ github.run_number }}
 jobs:
   Get_CR_Details:
     runs-on: ubuntu-latest
@@ -63,8 +62,8 @@ jobs:
                file.write(f'Platform Resources: {u_platform_resources}\n')
                file.write(f'Platform Environment Type: {u_environment_type}\n')
 
-           container_name = 'logs-changerequest'
-           connection_string = 'DefaultEndpointsProtocol=https;AccountName=satecsaeaddev;AccountKey=iRmTtKUzgQ/VuhH+rYl91fwAvNXoUmia/rH6fvryN7OO8dkxjGSMlW3ijL+JDvsARlW/FTMoRAG/+AStZ5J92Q==;EndpointSuffix=core.windows.net'
+           container_name = '${{ secrets.AZURECONTAINER }}'
+           connection_string = '${{ secrets.CONNECTION_STRING }}'
            blob_service_client = BlobServiceClient.from_connection_string(connection_string)
     
            outer_folder_name = datetime.now().strftime('%d-%m-%Y')
