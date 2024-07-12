@@ -26,10 +26,7 @@ jobs:
   Upload_to_Blob:
      needs: Get_CR_Details
      runs-on: ubuntu-latest
-     env:
-         TITLE: ${{ needs.Get_CR_Details.outputs.TITLE }}
-         PLATFORM_RESOURCE: ${{ needs.Get_CR_Details.outputs.PlatformResource }}
-         ENVIRONMENT: ${{ needs.Get_CR_Details.outputs.environment }}
+
      steps:
      - name: Install dependencies
        run: |
@@ -37,6 +34,10 @@ jobs:
         pip install azure-storage-blob
         python -m pip install --upgrade pip
      - name: Upload to Blob
+       env:
+         TITLE: ${{ needs.Get_CR_Details.outputs.TITLE }}
+         PLATFORM_RESOURCE: ${{ needs.Get_CR_Details.outputs.PlatformResource }}
+         ENVIRONMENT: ${{ needs.Get_CR_Details.outputs.Environment }}
        run: |
            python -c "
            from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
