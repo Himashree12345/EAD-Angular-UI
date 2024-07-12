@@ -15,11 +15,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Get CR Details
-    - run: echo "${{ github.event.client_payload.title }}"
-    - run: echo "${{ github.event.client_payload.PlatformResource }}"
-    - run: echo "${{ github.event.client_payload.environment }}"
     
     - name: Update configs
       run: cp -r development.json ../src/assets/environments/development.json
