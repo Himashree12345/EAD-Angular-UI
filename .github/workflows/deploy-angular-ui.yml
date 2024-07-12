@@ -17,57 +17,7 @@ jobs:
         echo "PlatformResource: ${{ github.event.client_payload.PlatformResource }}"
         echo "Environment: ${{ github.event.client_payload.environment }}"
  
-  Check_CR:
-    needs: Get_CR_Details
-    runs-on: ubuntu-latest
-    steps:
-    - name: Instal dependencies
-      run: |
-        python -m pip install requests
-        pip install azure-storage-blob
-        python -m pip install --upgrade pip
-    - name: Check CR Approval
-      run: | 
-          python -c "
-          import requests
-          import sys
-          import os
-  
-          # Define the URL
-          workitem_id =  '${{ github.event.client_payload.workitemid }}'
-    
-          url = ${{ secrets.API_URL }}
-          build_id = os.getenv('BUILD_BUILDID')
-
-          url_latest = f"{url}{workitem_id}"
-          print(url_latest)
-          # Send a GET request to the API
-          response = requests.get(url_latest)
-  
-          # Parse the JSON response
-          data = response.json()
-  
-          print(data)
-          # Check the state
-
-  
-          if data['state'].lower() == 'approved':
-              print("State is Approved. Proceed to the next stage.")
-              
-              update_url= ${{ secrets.EADP_UPDATE_STATE }}
-              payload = {    
-                      'workItemTitle': workitem_id,    
-                      'state': 'InProgress',    
-                      'buildId': build_id
-                      } 
-  
-              response = requests.put(update_url, json=payload)
-
-   
-          else:
-              print(f"State is {data['state']}. Stop the pipeline.")
-              sys.exit(1)
-          "
+ 
   Upload_to_Blob:
      needs: Get_CR_Details
      runs-on: ubuntu-latest
