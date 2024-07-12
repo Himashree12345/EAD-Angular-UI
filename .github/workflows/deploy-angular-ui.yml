@@ -64,7 +64,7 @@ jobs:
                file.write(f'Platform Environment Type: {u_environment_type}\n')
 
            container_name = '${{ secrets.AZURECONTAINER }}'
-           connection_string = '${{ secrets.AZURECONTAINER }}'
+           connection_string = '${{ secrets.CONNECTION_STRING }}'
            blob_service_client = BlobServiceClient.from_connection_string(connection_string)
     
            outer_folder_name = datetime.now().strftime('%d-%m-%Y')
