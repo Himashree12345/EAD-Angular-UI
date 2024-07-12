@@ -26,12 +26,12 @@ jobs:
   Upload_to_Blob:
      needs: Get_CR_Details
      runs-on: ubuntu-latest
-     steps:
-     - name: Install dependenciesc
-       env:
+     env:
          TITLE: ${{ needs.Get_CR_Details.outputs.TITLE }}
          PLATFORM_RESOURCE: ${{ needs.Get_CR_Details.outputs.PlatformResource }}
          ENVIRONMENT: ${{ needs.Get_CR_Details.outputs.environment }}
+     steps:
+     - name: Install dependencies
        run: |
         python -m pip install requests
         pip install azure-storage-blob
@@ -53,7 +53,7 @@ jobs:
                f.write(PlatformResource + '\n')
                f.write(Environment + '\n')
 
-            with open(os.path.join(os.getenv('GITHUB_WORKSPACE'), 'change_request_data.txt'), 'r') as f:
+           with open(os.path.join(os.getenv('GITHUB_WORKSPACE'), 'change_request_data.txt'), 'r') as f:
               number = f.readline().strip()
               u_platform_resources = f.readline().strip()
               u_environment_type = f.readline().strip()
