@@ -18,10 +18,7 @@ jobs:
         echo "PlatformResource: ${{ github.event.client_payload.PlatformResource }}"
         echo "Environment: ${{ github.event.client_payload.environment }}"
  
-        echo "::set-output name=TITLE::${{ github.event.client_payload.title }}"
-        echo "::set-output name=PlatformResource::${{ github.event.client_payload.PlatformResource }}"
-        echo "::set-output name=Environment::${{ github.event.client_payload.environment }}"
-
+     
      
   Upload_to_Blob:
      needs: Get_CR_Details
@@ -34,10 +31,6 @@ jobs:
         pip install azure-storage-blob
         python -m pip install --upgrade pip
      - name: Upload to Blob
-       env:
-         TITLE: ${{ needs.Get_CR_Details.outputs.TITLE }}
-         PLATFORM_RESOURCE: ${{ needs.Get_CR_Details.outputs.PlatformResource }}
-         ENVIRONMENT: ${{ needs.Get_CR_Details.outputs.Environment }}
        run: |
            python -c "
            from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
